@@ -50,6 +50,21 @@ ActiveRecord::Schema.define(version: 20141031112654) do
     t.boolean  "other_treatment"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
+end
+ActiveRecord::Schema.define(version: 20141030114355) do
 
+  create_table "patients", force: true do |t|
+    t.string   "passport"
+    t.string   "fname"
+    t.string   "midname"
+    t.string   "lname"
+    t.string   "gender"
+    t.date     "dob"
+    t.string   "test_location"
+    t.string   "clinic"
+    t.string   "visa_type"
+    t.string   "contact"
+    t.string   "embassy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
 end
