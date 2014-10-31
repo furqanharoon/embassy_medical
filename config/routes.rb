@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get 'questions/new'
+
+  get 'questions/create'
+
   get 'patients/index'
 
   get 'patients/show'
@@ -14,6 +19,7 @@ Rails.application.routes.draw do
   get 'patients/delete'
 
   get 'patients/destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -69,5 +75,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
   match ':controller(/:action(/:id))(.:format)', :via =>[:get,:post]
 end
