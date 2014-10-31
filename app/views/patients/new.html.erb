@@ -1,0 +1,216 @@
+<h1>Patient Add Form</h1>
+<%= form_for(:patient, :html => {:name => "patient"} , :url => {:controller => 'patients', :action => 'create'}) do |f| %>
+	
+	<p> Enter Passport Number:</br> <%= f.text_field :passport %> 
+		<div id ="pass" style="display:none;color:red;">
+			Passport Number Cannot be blank!
+		</div>
+	</p>
+	<p> Enter First Name:</br> <%= f.text_field :fname %> 
+		<div id ="fname" style="display:none;color:red;">
+			First Name Cannot be blank!
+		</div>
+
+	</p>
+	<p> Enter Middle Name:</br> <%= f.text_field :midname %> 
+
+		<div id ="mname" style="display:none;color:red;">
+			Middle Name Cannot be blank!
+		</div>
+	</p>
+	<p> Enter Last Name:</br> <%= f.text_field :lname %> 
+
+		<div id ="lname" style="display:none;color:red;">
+			Last Name Cannot be blank!
+		</div>
+	</p>
+	<p> Select Gender : <br/> Male <%= f.radio_button :gender , "Male" %>
+		<br/> Female <%= f.radio_button :gender , "Female" %>
+
+		<div id ="gender" style="display:none;color:red;">
+			Must Select your Gender!
+		</div>
+
+	</p>
+	<p> Date of Birth:</br> <%= f.date_select :dob %> 
+
+		<div id ="dob" style="display:none;color:red;">
+			Date of Birth Cannot be blank!
+		</div>
+	</p>
+	<p> Enter Test Location:</br> <%= f.text_field :test_location %> 
+
+		<div id ="tl" style="display:none;color:red;">
+			Test Location Cannot be blank!
+		</div>
+	</p>
+	<p> Enter Test Clinic:</br> <%= f.text_field :clinic %> 
+		<div id ="clinic" style="display:none;color:red;">
+			Clinic Cannot be blank!
+		</div>
+	</p>
+	<p> Enter Visa Type:</br> <%= f.text_field :visa_type %>
+		<div id ="visa" style="display:none;color:red;">
+			Visa Type Cannot be blank!
+		</div>
+	</p>
+	<p> Enter Contact Number:</br> <%= f.text_field :contact %> 
+
+		<div id ="cnt" style="display:none;color:red;">
+			Contact Number Cannot be blank!
+		</div>
+	</p>
+	
+	<p> Enter Embassy:</br> <%= f.text_field :embassy %> 
+		<div id ="emb" style="display:none;color:red;">
+			Embassy Name Cannot be blank!
+		</div>
+	</p>
+
+	<%= f.submit "Add Patient" , :onclick => "return validate_form();" %>
+<% end %>
+
+
+
+<script type="text/javascript">
+  function validate_form()
+  {
+  	//return false;
+  	//alert("YOO!")
+  	//var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+    var check = 0;
+    var passport = document.forms["patient"]["patient[passport]"].value;
+    var fname = document.forms["patient"]["patient[fname]"].value;
+    var midname = document.forms["patient"]["patient[midname]"].value;
+    var lname = document.forms["patient"]["patient[lname]"].value;
+    var gender = document.forms["patient"]["patient[gender]"].value;
+    //var dob = document.forms["patient"]["patient[dob]"].value;
+    var test_location = document.forms["patient"]["patient[test_location]"].value;
+    var clinic = document.forms["patient"]["patient[clinic]"].value;
+    var visa = document.forms["patient"]["patient[visa_type]"].value;
+    var contact = document.forms["patient"]["patient[contact]"].value;
+    var embassy = document.forms["patient"]["patient[embassy]"].value;
+
+
+    if(passport == "")
+    {
+      check = check + 1;
+      document.getElementById("pass").style.display = "block";
+    }
+    else
+    {
+      document.getElementById("uname").style.display = "none";
+
+    }
+    if(fname == "")
+    {
+      check = check + 1;
+      document.getElementById("fname").style.display = "block";
+    }
+    else
+    {
+      document.getElementById("fname").style.display = "none";
+    }
+
+    if(midname == "")
+    {
+      check = check + 1;
+      document.getElementById("mname").style.display = "block";
+
+    }
+    else
+    {
+      document.getElementById("mname").style.display = "none";
+
+    }
+    if(lname == "")
+    {
+    	check = check + 1;
+    	document.getElementById("lname").style.display = "block";
+
+    }
+    else
+    {
+    	document.getElementById("lname").style.display = "none";
+
+    }
+
+    /*if(dob == "")
+    {
+    	document.getElementById("dob").style.display = "block";
+
+    }
+    else
+    {
+    	document.getElementById("dob").style.display = "none";
+
+    }*/
+
+    if(test_location == "")
+    {
+    	check = check + 1;
+    	document.getElementById("tl").style.display = "block";
+
+    }
+    else
+    {
+    	document.getElementById("tl").style.display = "none";
+
+    }
+
+    if(clinic == "")
+    {
+    	check = check + 1;
+    	document.getElementById("clinic").style.display = "block";
+
+    }
+    else
+    {
+    	document.getElementById("clinic").style.display = "none";
+
+    }
+    if(visa == "")
+
+    {
+    	check = check + 1;
+    	document.getElementById("visa").style.display = "block";
+
+    }
+    else
+    {
+    	document.getElementById("visa").style.display = "none";
+
+    }
+
+    if(contact == "")
+    {
+    	check = check + 1;
+    	document.getElementById("cnt").style.display = "block";
+
+    }
+    else
+    {
+    	document.getElementById("cnt").style.display = "none";
+
+    }
+
+    if(embassy == "")
+    {
+    	check = check + 1;
+    	document.getElementById("emb").style.display = "block";
+
+    }
+    else
+    {
+    	document.getElementById("emb").style.display = "none";
+
+    }
+    return false;
+
+    if(check == 0)
+      return true;
+    else
+      return false;
+
+}
+</script>
