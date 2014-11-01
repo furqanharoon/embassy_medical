@@ -1,5 +1,37 @@
 Rails.application.routes.draw do
 
+  get 'registrations/index'
+
+  get 'registrations/show'
+
+  get 'registrations/new'
+
+  get 'registrations/create'
+
+  get 'registrations/edit'
+
+  get 'registrations/update'
+
+  get 'registrations/delete'
+
+  get 'registrations/destroy'
+
+  get 'session/index'
+
+  get 'session/show'
+
+  get 'session/new'
+
+  get 'session/create'
+
+  get 'session/edit'
+
+  get 'session/update'
+
+  get 'session/delete'
+
+  get 'session/destroy'
+
   get 'questions/new'
 
   get 'questions/create'

@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031112654) do
+ActiveRecord::Schema.define(version: 20141101100543) do
+
+  create_table "patients", force: true do |t|
+    t.string   "passport"
+    t.string   "fname"
+    t.string   "midname"
+    t.string   "lname"
+    t.string   "gender"
+    t.date     "dob"
+    t.string   "test_location"
+    t.string   "clinic"
+    t.string   "visa_type"
+    t.string   "contact"
+    t.string   "embassy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "questions", force: true do |t|
     t.boolean  "illness_or_injury"
@@ -50,21 +66,15 @@ ActiveRecord::Schema.define(version: 20141031112654) do
     t.boolean  "other_treatment"
     t.datetime "created_at"
     t.datetime "updated_at"
-end
-ActiveRecord::Schema.define(version: 20141030114355) do
+  end
 
-  create_table "patients", force: true do |t|
-    t.string   "passport"
-    t.string   "fname"
-    t.string   "midname"
-    t.string   "lname"
-    t.string   "gender"
-    t.date     "dob"
-    t.string   "test_location"
-    t.string   "clinic"
-    t.string   "visa_type"
-    t.string   "contact"
-    t.string   "embassy"
+  create_table "registrations", force: true do |t|
+    t.string   "user_name"
+    t.string   "password_digest"
+    t.string   "user_type"
+    t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
 end
