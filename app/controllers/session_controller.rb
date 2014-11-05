@@ -5,20 +5,18 @@ class SessionController < ApplicationController
   def show
   end
 
-  def new
-    flash[:notice]="username or password is invalid" 
+  def new 
     render 'new'
   end
 
   def create
     @username = params[:session][:username]
     @password = params[:session][:password]
-    @user    = Registration.auth(@username,@password)
+    @user     = Registration.auth(@username,@password)
     if @user
-      flash[:notice] = "Ahoy!" 
       redirect_to :action => 'index' and return
     else
-      flash[:notice]="username or password is invalid" 
+      flash[:error]="Username or Password is Invalid"
       redirect_to :action => 'new' and return
     end
   end

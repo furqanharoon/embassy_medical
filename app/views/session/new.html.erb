@@ -1,5 +1,7 @@
 <%= form_for :session , :url=>{:controller => "session",:action => "create" } do |f| %>
-	
+  <% if flash[:error] %>
+   <%= flash[:error] %>
+  <% end %>
 	<div class="row-fluid">
 		<div class="span6">
 		<!-- BEGIN widget-->
