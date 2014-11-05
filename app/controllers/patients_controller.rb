@@ -7,12 +7,15 @@ class PatientsController < ApplicationController
 
   def new
     @patient = Patient.new
+    
   end
 
   def create
     @patient = Patient.create(patient_params)
+
     if @patient
-      redirect_to :action => 'index' and return
+      cookies[:patient_id]=@patient.id
+      redirect_to :controller =>"questions" ,:action => 'new' and return
     else
       render 'new'
     end

@@ -1,0 +1,174 @@
+<div class="page-header">
+	<h2>
+		Appointment 
+	</h2>
+</div>
+
+<div class="page-content">
+	<%= form_for :Appointment, :url=>{:action=>"create"} do |f|%>
+	<div class="row">
+		<div class="col-sm-3" >
+			Embassy
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :appointment_embassy,@countries %>
+		</div>
+	</div>
+<div class="row" id="appointment_day_row">
+		<div class="col-sm-3" >
+			Appointment Date
+		</div>
+		<div class="col-sm-4">
+			<%= f.text_field :appointment_day %>
+		</div>
+	</div>
+
+	<div class="row" id="appointment_time_row">
+		<div class="col-sm-3" >
+			Appointment Time
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :appointment_time,@times %>
+		</div>
+	</div>
+
+
+	
+		<div class="row">
+		<div class="col-sm-3" >
+			
+		</div>
+		<div class="col-sm-4">
+			<%= f.submit "Save" %>
+		</div>
+	</div>
+	<% end %>
+</div>
+<%= javascript_include_tag "jquery-ui.min" %>
+<script type="text/javascript">
+var schedule_data=null;
+	$(document).ready(function(){
+		
+	});
+
+$(document).ready(function(){
+	$('#appointment_day_row').hide();
+	$('#appointment_time_row').hide();
+
+	$("#Appointment_appointment_embassy").change(function(){
+		
+		$.ajax({
+			url:"../ajax_helper/get_day",
+			method:"POST",
+			dataType:"JSON",
+			data:{"country_id":$(this).val()}
+		}).success(function(data){
+			if(data.length<=0)
+			{
+				alert("No appointment exist");
+					$('#appointment_day_row').hide();
+					$('#appointment_time_row').hide();
+
+				return;
+			}
+			schedule_data=data[0];
+			//alert(data[0].schedules_time_duration);
+			days=data[0].schedule_weekdays.split('>');
+			
+			//alert(week_day(days[1].trim()));
+			$('#Appointment_appointment_day').datepicker({ beforeShowDay:
+	    	function(dt)
+	    	{
+	    		flag=[true];
+	    		 days.forEach(function(e,i){
+	    			if(dt.getDay()==week_day(e.trim()))
+	    		 		flag= [false];
+	    		 });
+	    		 return flag;
+	       		
+	    	},
+	    	dateFormat:"yy-m-d"
+	 	});
+			$('#appointment_day_row').show();
+			$('#appointment_time_row').show();
+			var list=get_time_list();
+			var select_box=$("#Appointment_appointment_time");
+			$(select_box).html("<option value='' >Select Time</option>");
+			list.forEach(function(e,i){
+
+				$(select_box).append("<option value='"+e+"' >"+e+"</option>");
+
+			});
+
+		}).fail(function(){
+
+		});
+	});
+});
+//Appointment_appointment_time
+function get_time_list()
+{
+	var from=schedule_data.schedules_time_duration.split('-')[0].trim();
+	var to=schedule_data.schedules_time_duration.split('-')[1].trim();
+	var from_time=new Date('1 Jan 1900 '+from);
+	var to_time=new Date('1 Jan 1900 '+to);
+	var interval=parseInt(schedule_data.schedule_unit_time);
+	var diff = Math.abs(to_time - from_time);
+	var list=[];
+	for(i=0;i<(((diff/1000)/60)/interval);i++)
+	{
+		var string_time=formatAMPM(from_time);
+		var currentMinutes=parseInt(from_time.getMinutes());
+		from_time.setMinutes(currentMinutes+interval);
+		string_time+=" - "+formatAMPM(from_time);
+		list[i]=string_time;
+
+	}
+	//console.log(list);
+	return list
+}
+
+
+
+
+function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
+}
+
+
+
+
+function week_day(day)
+{
+	switch(day)
+	{
+		case "Monday":
+			return 1;
+		case "Tuesday":
+			return 2;
+		case "Wednesday":
+			return 3;
+		case "Thursday":
+			return 4;
+		case "Friday":
+			return 5;
+		case "Saturday":
+			return 6;
+		case "Sunday":
+			return 7;
+		default:
+			return "Error";
+	}
+}
+
+
+
+
+</script>

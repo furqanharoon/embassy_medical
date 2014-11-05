@@ -1,0 +1,40 @@
+<div class="page-header">
+	<h2>
+		City Management
+	</h2>
+
+</div>
+
+<div class="page-content">
+	
+	<table class="table">
+		<caption><%= link_to "Add New City",:action=>"new" %></caption>
+		<thead>
+
+			<tr>
+				<th>Serial No</th>
+				<th>City</th>
+				<th>Country</th>
+				<th>Status</th>
+				<th colspan="2"><center>Action</center></th>
+			</tr>
+		</thead>
+		<tbody>
+						<% serial_no=0 %>
+	
+			<% @cities.each do |c| %>
+				<tr>
+
+					<td><%= serial_no=serial_no+1 %></td>
+					<td><%= c.city_name%></td>
+					<td><%= c.country_name %></td>
+					<td><%= c.city_status==1 ? "Enable" : "Disable"  %></td>
+					<td><%= link_to("Delete",:action=>"destroy",:id=>c.id) %></td>
+					<td><%= link_to(c.city_status==0 ? "Enable" : "Disable",:action=>"update",:id=>c.id) %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	
+</div>
