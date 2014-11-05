@@ -79,10 +79,13 @@ $(document).ready(function(){
 			$('#Appointment_appointment_day').datepicker({ beforeShowDay:
 	    	function(dt)
 	    	{
-	    		flag=[true];
+	    		flag=[false];
 	    		 days.forEach(function(e,i){
 	    			if(dt.getDay()==week_day(e.trim()))
-	    		 		flag= [false];
+	    		 		{
+	    		 			
+	    		 			flag= [true];
+	    		 		}
 	    		 });
 	    		 return flag;
 	       		
@@ -105,7 +108,7 @@ $(document).ready(function(){
 		});
 	});
 });
-//Appointment_appointment_time
+
 function get_time_list()
 {
 	var from=schedule_data.schedules_time_duration.split('-')[0].trim();
@@ -128,9 +131,6 @@ function get_time_list()
 	return list
 }
 
-
-
-
 function formatAMPM(date) {
   var hours = date.getHours();
   var minutes = date.getMinutes();
@@ -141,9 +141,6 @@ function formatAMPM(date) {
   var strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
 }
-
-
-
 
 function week_day(day)
 {
@@ -162,7 +159,7 @@ function week_day(day)
 		case "Saturday":
 			return 6;
 		case "Sunday":
-			return 7;
+			return 0;
 		default:
 			return "Error";
 	}
