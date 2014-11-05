@@ -1,0 +1,38 @@
+<div class="page-header">
+	<h2>
+		Add New City
+	</h2>
+
+</div>
+
+<div class="page-content">
+	<%= form_for :City, :url=>{:action=>"create"} do |f| %>
+	<div class="row">
+		<div class="col-sm-2">Country</div>
+		<div class="col-sm-3">
+			<%= f.select :Country_id , @countries.map { |c| [c.country_name,"#{c.id}"] } %>
+		</div>
+	</div>
+	<div class="row">
+
+		<div class="col-sm-2">City</div>
+		<div class="col-sm-3">
+			<%= f.text_field  :city_name %>
+		</div>
+	</div>
+		<div class="row">
+
+		<div class="col-sm-2">Enable</div>
+		<div class="col-sm-3">
+			<%= f.check_box  :city_status %>
+		</div>
+	</div>
+	<div class="row">
+
+		<div class="col-sm-2"></div>
+		<div class="col-sm-3">
+			<%= f.submit "Save" %>
+		</div>
+	</div>
+	<% end %>
+</div>
