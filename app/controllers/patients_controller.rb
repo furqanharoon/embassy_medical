@@ -32,11 +32,6 @@ class PatientsController < ApplicationController
 
   def destroy
   end
-
-  def patient_reg
-    
-  end
-
   private 
   def patient_params
     params.require(:patient).permit(:passport , :fname , :lname , :midname , :gender , :dob , :test_location , :clinic , :visa_type , :contact , :embassy)
