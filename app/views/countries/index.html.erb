@@ -1,0 +1,35 @@
+<div class="page-header">
+	<h2>
+		Country Management 
+	</h2>	
+</div>
+<div class="page-content">
+	<div class="row">
+		<table class="table">
+			<caption><%= link_to "add new country",:action=>"new" %></caption>
+			<thead>
+				<tr>
+					<th>Serial</th>
+					<th>Country</th>
+					<th>Enable/Disable</th>
+					<th colspan="2" >Actions</th>
+				</tr>	
+			</thead>
+			<tbody>
+				<% serial_no=0 %>
+
+				<% @countries.each do |c| %>
+					
+					<tr>
+						<td><%= serial_no=serial_no+1 %></td>
+						<td><%= c.country_name %></td>
+						<td><%= c.status ? "Enable" : "Disable"  %></td>
+						<td><%= link_to("Delete" ,:action=>"destroy",:id=>c.id) %></td>
+						<td><%= link_to(c.status ? "Disable" : "Enable" ,:action=>"update",:id=>c.id) %></td>
+						<td></td>
+					</tr>
+				<% end %>
+			</tbody>	
+		</table>
+	</div>
+</div>

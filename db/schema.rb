@@ -11,9 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031112654) do
+ActiveRecord::Schema.define(version: 20141105071132) do
+
+  create_table "appointments", force: true do |t|
+    t.integer  "patients_id"
+    t.string   "appointment_time"
+    t.date     "appointment_day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "appointment_embassy"
+  end
+
+  create_table "cities", force: true do |t|
+    t.integer  "Country_id"
+    t.string   "city_name",   limit: 100
+    t.boolean  "city_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clinics", force: true do |t|
+    t.integer  "cities_id"
+    t.string   "clinic_name", limit: 200
+    t.boolean  "status"
+    t.string   "address",     limit: 300
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.string   "country_name", limit: 50
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patients", force: true do |t|
+    t.string   "passport"
+    t.string   "fname"
+    t.string   "midname"
+    t.string   "lname"
+    t.string   "gender"
+    t.date     "dob"
+    t.string   "test_location"
+    t.string   "clinic"
+    t.string   "visa_type"
+    t.string   "contact"
+    t.string   "embassy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "questions", force: true do |t|
+    t.integer  "patient_id"
     t.boolean  "illness_or_injury"
     t.boolean  "heart_disease"
     t.boolean  "hypertension"
@@ -50,21 +100,16 @@ ActiveRecord::Schema.define(version: 20141031112654) do
     t.boolean  "other_treatment"
     t.datetime "created_at"
     t.datetime "updated_at"
-end
-ActiveRecord::Schema.define(version: 20141030114355) do
+  end
 
-  create_table "patients", force: true do |t|
-    t.string   "passport"
-    t.string   "fname"
-    t.string   "midname"
-    t.string   "lname"
-    t.string   "gender"
-    t.date     "dob"
-    t.string   "test_location"
-    t.string   "clinic"
-    t.string   "visa_type"
-    t.string   "contact"
-    t.string   "embassy"
+  create_table "schedules", force: true do |t|
+    t.integer  "Country_id"
+    t.integer  "schedule_total_days"
+    t.string   "schedule_weekdays",       limit: 100
+    t.integer  "schedule_unit_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "schedules_time_duration"
+  end
+
 end

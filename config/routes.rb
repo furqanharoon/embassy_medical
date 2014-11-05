@@ -1,5 +1,87 @@
 Rails.application.routes.draw do
 
+  get 'ajax_helper/get_day'
+
+  get 'appointments/index'
+
+  get 'appointments/show'
+
+  get 'appointments/new'
+
+  get 'appointments/create'
+
+  get 'appointments/edit'
+
+  get 'appointments/update'
+
+  get 'appointments/delete'
+
+  get 'appointments/destroy'
+
+  get 'schedules/index'
+
+  get 'schedules/show'
+
+  get 'schedules/new'
+
+  get 'schedules/create'
+
+  get 'schedules/edit'
+
+  get 'schedules/update'
+
+  get 'schedules/delete'
+
+  get 'schedules/destroy'
+
+  get 'cities/index'
+
+  get 'cities/show'
+
+  get 'cities/edit'
+
+  get 'cities/update'
+
+  get 'cities/delete'
+
+  get 'cities/destroy'
+
+  get 'cities/create'
+
+  get 'cities/new'
+
+  get 'countries/index'
+
+  get 'countries/show'
+
+  get 'countries/edit'
+
+  get 'countries/update'
+
+  get 'countries/delete'
+
+  get 'countries/destroy'
+
+  get 'countries/create'
+
+  get 'countries/new'
+
+  get 'appointment/index'
+
+  get 'appointment/show'
+
+  get 'appointment/new'
+
+  get 'appointment/create'
+
+  get 'appointment/edit'
+
+  get 'appointment/update'
+
+  get 'appointment/delete'
+
+  get 'appointment/destroy'
+
   get 'questions/new'
 
   get 'questions/create'
