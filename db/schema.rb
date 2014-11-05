@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(version: 20141105071132) do
     t.datetime "updated_at"
   end
 
+  create_table "registrations", force: true do |t|
+    t.string   "user_name"
+    t.string   "password_digest"
+    t.string   "user_type"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "schedules", force: true do |t|
     t.integer  "Country_id"
     t.integer  "schedule_total_days"
@@ -111,5 +120,4 @@ ActiveRecord::Schema.define(version: 20141105071132) do
     t.datetime "updated_at"
     t.string   "schedules_time_duration"
   end
-
 end

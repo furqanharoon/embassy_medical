@@ -1,0 +1,15 @@
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Status</th>
+		<th colspan="2">Action</th>
+	</tr>
+	<% @registration.each do |r| %>
+	<tr>
+		<td><%= r.user_name %></td>
+		<td><%= r.status ? 'Enable' :'Disable' %></td>
+		<td><a href="/registrations/destroy?id=<%= r.id %>">Delete</a></td>
+		<td><a href="/registrations/update?id=<%= r.id %>&&status=<%=r.status ? '0' :'1' %>"><%= r.status ? 'Disable' :'Enable' %></a></td>
+	</tr> 
+	<% end %>
+</table>

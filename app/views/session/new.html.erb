@@ -1,0 +1,35 @@
+<%= form_for :session , :url=>{:controller => "session",:action => "create" } do |f| %>
+  <% if flash[:error] %>
+   <%= flash[:error] %>
+  <% end %>
+	<div class="row-fluid">
+		<div class="span6">
+		<!-- BEGIN widget-->
+			<div class="widget blue">
+				<div class="widget-title">
+					<h4><i class="icon-reorder"></i>Login</h4>
+				</div>
+				<div class="widget-body form form-horizontal">
+					<div class="row-fluid">
+						<div class="control-group">
+							<label class="control-label">username</label>
+							<div class="controls controls-row">
+								<input type="text" class="input-block-level"  name="session[username]" required>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Password</label>
+							<div class="controls controls-row">
+								<input type="password" class="input-block-level"  name="session[password]" required>
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-success">Submit</button>
+							<button type="button" class="btn">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

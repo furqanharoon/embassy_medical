@@ -1,5 +1,38 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
+  get 'registrations/index'
+
+  get 'registrations/show'
+
+  get 'registrations/new'
+
+  get 'registrations/create'
+
+  get 'registrations/edit'
+
+  get 'registrations/update'
+
+  get 'registrations/delete'
+
+  get 'registrations/destroy'
+
+  get 'session/index'
+
+  get 'session/show'
+
+  get 'session/new'
+
+  get 'session/create'
+
+  get 'session/edit'
+
+  get 'session/update'
+
+  get 'session/delete'
+
+  get 'session/destroy'
+=======
   get 'ajax_helper/get_day'
 
   get 'appointments/index'
@@ -81,6 +114,7 @@ Rails.application.routes.draw do
   get 'appointment/delete'
 
   get 'appointment/destroy'
+>>>>>>> 66bf44551bc1fe8b26ff5f80ab48a899f4a7f521
 
   get 'questions/new'
 
