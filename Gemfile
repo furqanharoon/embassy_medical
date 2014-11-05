@@ -5,6 +5,28 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.5'
 # Use mysql as the database for Active Record
 gem 'mysql2'
+
+#Minitest gem 
+gem 'minitest', '~> 5.4.2'
+#Twilio Gem for Sending SMS
+gem 'twilio-ruby'
+
+#PONY GEM is Pre-requisite of Twilio GEM
+gem 'pony', '~> 1.11'
+
+#Mail GEM for ActionMailer
+gem 'mail', '~> 2.5.4'
+
+
+
+
+
+
+
+
+
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
