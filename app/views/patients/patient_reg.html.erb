@@ -1,0 +1,193 @@
+<%= form_for :patient , :url => {:controller => 'patients', :action => 'patient_reg'} do |f| %>
+
+
+<div class="control-group">
+    <label class="control-label">Lab Code</label>
+    <div class="controls">
+        <input type="text" class="input-xlarge" name="">
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label">Last Name</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge" name="">
+        </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label">First Name</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge" name="">
+        </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label">MI</label>
+        <div class="controls">
+            <input type="text" class="input-medium" name="">
+        </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label">Sex</label>
+    <div class="controls">
+        <select class="input-large m-wrap" tabindex="1" name="">
+            <option value="male">Male</option>  
+            <option value="female">Female</option>
+        </select>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label">Date of Birth</label>
+    <div class="controls">
+        <input id="dp1" type="text" name="birth_date"  placeholder="MM-DD-YEAR"  size="16" class="m-ctrl-medium" required>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label">Birth City</label>
+        <div class="controls">
+            <select class="input-large m-wrap" tabindex="1" name="birth_city"  required>
+                <option value="">Select the City</option>
+<option value="<?php echo $city['city_name'];?>"<?php if($lower=='islamabad'){?> selected <?php } else{} ?> ><?php echo $city['city_name'];?></option>
+<?php endforeach?>
+</select>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">Birth Country</label>
+<div class="controls">
+<select class="input-large m-wrap" tabindex="1" name="birth_country"  required>
+<option value="">Select the Country</option>
+<?php foreach ($countries as $country):?>
+<?php $lower = strtolower($country['country_name']);?>
+<option value="<?php echo $country['country_name'];?>" <?php if($lower=='pakistan'){?> selected <?php } else{} ?>><?php echo $country['country_name'];?></option>
+<?php endforeach?>
+</select>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">Present Country</label>
+<div class="controls">
+<select class="input-large m-wrap" tabindex="1" name="current_country"  required>
+<option value="">Select the Country</option>
+<?php foreach ($countries as $country):?>
+<?php $lower = strtolower($country['country_name']);?>
+<option value="<?php echo $country['country_name'];?>" <?php if($lower=='pakistan'){?> selected <?php } else{} ?>><?php echo $country['country_name'];?></option>
+<?php endforeach?>
+</select>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label">TB Status</label>
+<div class="controls">
+<label class="checkbox">
+<div class="checker" id="uniform-undefined">
+<span id="check_span" class="">
+<input type="checkbox" onclick="tb_status_update()" value="yes" style="opacity: 0;" name="tb_status" id="tb_status" >
+</span></div>
+TB Positive
+</label>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">Passport No</label>
+<div class="controls">
+<input type="text" class="input-xlarge" name="passport_number" required>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">Alien No</label>
+<div class="controls">
+<input type="text" class="input-xlarge"  name="alien_number"  required>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">Visa Type</label>
+<div class="controls">
+<select class="input-large m-wrap" tabindex="1"  name="visa_type_code" required>
+<option value="1">None</option>
+<option value="k1">K1</option>
+<option value="v-92">V92</option>
+</select>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label">Prior Country</label>
+<div class="controls">
+<select class="input-large m-wrap" tabindex="1" name="prior_country"  required>
+<option value="">Select the Country</option>
+<?php foreach ($countries as $country):?>
+<?php $lower = strtolower($country['country_name']);?>
+<option value="<?php echo $country['country_name'];?>" <?php if($lower=='pakistan'){?> selected <?php } else{} ?>><?php echo $country['country_name'];?></option>
+<?php endforeach?>
+</select>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">US Consul Country</label>
+<div class="controls">
+<select class="input-large m-wrap" tabindex="1" name="us_consolate_country"  required>
+<option value="">Select the Country</option>
+<?php foreach ($countries as $country):?>
+<?php $lower = strtolower($country['country_name']);?>
+<option value="<?php echo $country['country_name'];?>" <?php if($lower=='pakistan'){?> selected <?php } else{} ?>><?php echo $country['country_name'];?></option>
+<?php endforeach?>
+</select>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">US Consul City</label>
+<div class="controls">
+<select class="input-large m-wrap" tabindex="1" name="us_consolate_city"  required>
+<option value="">Select the City</option>
+<?php foreach ($cities as $city):?>
+<?php $lower = strtolower($city['city_name']);?>
+<option value="<?php echo $city['city_name'];?>" <?php if($lower=='islamabad'){?> selected <?php } else{} ?>><?php echo $city['city_name'];?></option>
+<?php endforeach?>
+</select>
+</div>
+</div>
+
+</div>
+
+<div class="tab-pane" id="tabsleft-tab2">
+<h3>Final step</h3>
+
+<div class="control-group">
+<label class="control-label">Attach Passport:</label>
+<div class="controls">
+<input type="file" name="passport_image" id="passport_image" accept="image/*">
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">Attach CNIC:</label>
+<div class="controls">
+<input type="file" name="nic_image" id="nic_image" accept="image/*">
+</div>
+</div>
+<div class="control-group">
+<label class="control-label">Other Document:</label>
+<div class="controls">
+<input type="file" name="other_image" id="other_image" accept="image/*">
+</div>
+</div>
+
+
+</div>
+<ul class="pager wizard">
+
+
+<li class="previous first disabled"><a href="javascript:;">First</a></li>
+<li class="previous disabled"><a href="javascript:;">Previous</a></li>
+<li class="next last"><a href="javascript:;">Last</a></li>
+<li class="next"><a href="javascript:;">Next</a></li>
+<li class="next finish" style="display: none;"><input class="finishbutton" type="submit" value="Finish"/></li>
+</ul>
+</div>
+</div>
+<% end %>
