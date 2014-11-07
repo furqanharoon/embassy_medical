@@ -1,7 +1,42 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
+  get 'roles/index'
+
+  get 'roles/show'
+
+  get 'roles/new'
+
+  get 'roles/create'
+
+  get 'roles/edit'
+
+  get 'roles/update'
+
+  get 'roles/delete'
+
+  get 'roles/destroy'
+
+  get 'menu_management/index'
+
+  get 'menu_management/show'
+
+  get 'menu_management/new'
+
+  get 'menu_management/create'
+
+  get 'menu_management/edit'
+
+  get 'menu_management/update'
+
+  get 'menu_management/delete'
+
+  get 'menu_management/destroy'
+
   get 'registrations/index'
+
+  get 'registrations/edit_rights'
+
+  get 'registrations/update_rights'
 
   get 'registrations/show'
 
@@ -32,7 +67,7 @@ Rails.application.routes.draw do
   get 'session/delete'
 
   get 'session/destroy'
-=======
+
   get 'ajax_helper/get_day'
 
   get 'appointments/index'
@@ -114,7 +149,7 @@ Rails.application.routes.draw do
   get 'appointment/delete'
 
   get 'appointment/destroy'
->>>>>>> 66bf44551bc1fe8b26ff5f80ab48a899f4a7f521
+
 
   get 'questions/new'
 
@@ -136,7 +171,9 @@ Rails.application.routes.draw do
 
   get 'patients/destroy'
 
+  ##------------>>>Dont repeat this pattern<<<------------##
 
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

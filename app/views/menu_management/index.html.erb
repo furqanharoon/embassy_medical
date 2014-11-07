@@ -1,0 +1,34 @@
+<div class="page-header">
+	<h2>Menu Item Management</h2>
+</div>
+<div class="page-content">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Controller</th>
+				<th>Action</th>
+				<th>Lable</th>
+				<th>Heading</th>
+				<th>Menu Item</th>
+				<th>Save</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<% @file.each do |r| %>
+			<%= form_for :menu_items ,:url=>{:action=>"create"} do |f| %>
+				<tr>
+					<%= f.hidden_field :action , :value=>r.split('/')[1]%>
+					<%= f.hidden_field :controller , :value=>r.split('/')[0]%>
+					<td><%= r.split('/')[0] %></td>
+					<td><%= r.split('/')[1] %></td>
+					<td><%=  f.text_field :lable %></td>
+					<td><%=  f.select :menu_heading_id,@headings %></td>
+					<td><%=  f.check_box :is_menu %></td>
+					<td><%= f.submit "Save" %></td>
+				</tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+</div>

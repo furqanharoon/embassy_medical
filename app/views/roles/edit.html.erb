@@ -1,0 +1,34 @@
+<div class="page-header">
+	<h2>Edit Right</h2>
+</div>
+
+<div class="page-content">
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Select</td>
+				<th>Lable</th>
+			</tr>
+		</thead>
+		<tbody>
+
+
+			<%= form_for :menu_items,:url=>{:action=>"update",:id=>params[:id]} do |f| %>
+			<% @menuitems.each do |i| %>
+			<tr>
+
+				<!-- <td><%= f.check_box(:menuitems_id,{:multiple=>true},i.id) %></td> -->
+
+				<td><input type="checkbox" name="rights[]" value="<%= i.id %>" <%= x=@checked.bsearch{|e| i.id-e.menuitems_id }; ( !x.blank? ? "checked" : "" ) %> ></td>
+				<td><%= i.lable %></td>
+			</tr>
+			<% end %>
+			<tr>
+				<td></td>
+				<td><%= f.submit "Save" %></td>
+			</tr>
+			<% end %>
+
+		</tbody>
+	</table>
+</div>
