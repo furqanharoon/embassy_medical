@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  registration_id: 
+  role_id: 
+  menuitems_id: 
+
+two:
+  registration_id: 
+  role_id: 
+  menuitems_id: 

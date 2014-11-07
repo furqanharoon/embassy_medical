@@ -41,9 +41,30 @@ class RegistrationsController < ApplicationController
     redirect_to :action => 'index'
   end
 
+  def edit_rights
+    @menuitems=MenuItems.all
+    @checked=RoleRelation.where("registration_id = #{params[:id]}").order("menuitems_id ASC")
+  end
+
+  def update_rights
+    rights=params[:rights]
+    old=RoleRelation.where("registration_id = #{params[:id]}")
+    old.destroy_all
+    if !rights.blank?
+      rights.each do |r|
+       reference=RoleRelation.new(:menuitems_id=>r,:registration_id=>params[:id])
+       reference.save
+
+      end
+
+    end
+    redirect_to :action=>"edit_rights" , :id=>params[:id]
+  end
+
+
   private
   def registration_params
-    params.require(:registration).permit(:user_name,:password,:password_confirmation,:user_type,:status)
+    params.require(:registration).permit(:fname,:lname,:user_name,:password,:password_confirmation,:user_type,:status)
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105071132) do
+ActiveRecord::Schema.define(version: 20141106060222) do
 
   create_table "appointments", force: true do |t|
     t.integer  "patients_id"
@@ -45,6 +45,25 @@ ActiveRecord::Schema.define(version: 20141105071132) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "menu_headings", force: true do |t|
+    t.string   "heading_name",   limit: 100
+    t.integer  "heading_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menu_items", force: true do |t|
+    t.string   "action",          limit: 50
+    t.string   "controller",      limit: 50
+    t.string   "lable",           limit: 100
+    t.boolean  "is_menu"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "menu_heading_id"
+  end
+
+  add_index "menu_items", ["menu_heading_id"], name: "index_menu_items_on_menu_heading_id", using: :btree
 
   create_table "patients", force: true do |t|
     t.string   "passport"
@@ -109,6 +128,27 @@ ActiveRecord::Schema.define(version: 20141105071132) do
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "lname",           limit: 100
+    t.string   "fname",           limit: 100
+  end
+
+  create_table "role_relations", force: true do |t|
+    t.integer  "registration_id"
+    t.integer  "role_id"
+    t.integer  "menuitems_id"
+    t.boolean  "extended"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "role_relations", ["menuitems_id"], name: "index_role_relations_on_menuitems_id", using: :btree
+  add_index "role_relations", ["registration_id"], name: "index_role_relations_on_registration_id", using: :btree
+  add_index "role_relations", ["role_id"], name: "index_role_relations_on_role_id", using: :btree
+
+  create_table "roles", force: true do |t|
+    t.string   "role_name",  limit: 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "schedules", force: true do |t|
@@ -120,4 +160,5 @@ ActiveRecord::Schema.define(version: 20141105071132) do
     t.datetime "updated_at"
     t.string   "schedules_time_duration"
   end
+
 end
