@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105071132) do
+ActiveRecord::Schema.define(version: 20141105122614) do
 
   create_table "appointments", force: true do |t|
     t.integer  "patients_id"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20141105071132) do
     t.string   "embassy"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "alien_no"
+    t.string   "lab_code"
+    t.string   "birth_country"
+    t.string   "present_country"
+    t.boolean  "tb_status",       default: false
+    t.string   "embassy_country"
+    t.string   "embassy_city"
+    t.string   "prior_country"
+    t.binary   "passport_img"
+    t.binary   "nic_img"
+    t.binary   "other_docs"
   end
 
   create_table "questions", force: true do |t|
@@ -120,4 +131,5 @@ ActiveRecord::Schema.define(version: 20141105071132) do
     t.datetime "updated_at"
     t.string   "schedules_time_duration"
   end
+
 end

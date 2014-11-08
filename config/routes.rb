@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
+
   get 'registrations/index'
 
   get 'registrations/show'
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get 'session/delete'
 
   get 'session/destroy'
-=======
+
   get 'ajax_helper/get_day'
 
   get 'appointments/index'
@@ -114,7 +114,7 @@ Rails.application.routes.draw do
   get 'appointment/delete'
 
   get 'appointment/destroy'
->>>>>>> 66bf44551bc1fe8b26ff5f80ab48a899f4a7f521
+
 
   get 'questions/new'
 
@@ -135,6 +135,8 @@ Rails.application.routes.draw do
   get 'patients/delete'
 
   get 'patients/destroy'
+
+  get 'appointment/search'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
