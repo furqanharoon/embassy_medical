@@ -1,0 +1,14 @@
+<% @appointment.each do |s| %>
+	<tr>
+		<td><%= s.passport %></td> 
+		<td><%= s.fname %></td>   
+		<td><%= s.lname %></td>
+		<td><%= s.gender %></td>
+		<td><%= s.dob %></td>
+		<td><%= s.country_name %></td>
+		<td><%= s.appointment_time %></td>
+		<td><%= s.appointment_day %></td>
+		<td><a href="/patients/patient_reg?id=<%= s.patients_id %>">Edit Registration</a></td>
+		<td><button>Add Exam</button></td>
+	</tr>
+<% end %>

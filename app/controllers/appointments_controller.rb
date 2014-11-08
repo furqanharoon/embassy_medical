@@ -1,5 +1,19 @@
 class AppointmentsController < ApplicationController
+  layout :layout_resolve
+
   def index
+      @date = DateTime.now.to_date
+      @appointment = Appointment.select("appointments.*,countries.*,patients.*").joins('inner join countries on countries.id=appointments.appointment_embassy inner join patients on patients.id=appointments.patients_id ').where(:appointments => {appointment_day:@date  } )
+  end
+
+  def search
+    @passport =  params[:passport_no] 
+    if !params[:passport_no].blank?
+      @appointment = Appointment.select("appointments.*,countries.*,patients.*").joins('inner join countries on countries.id=appointments.appointment_embassy inner join patients on patients.id=appointments.patients_id ').where('patients.passport like ?', '%'+@passport+'%')    
+    else
+      @appointment = Appointment.select("appointments.*,countries.*,patients.*").joins('inner join countries on countries.id=appointments.appointment_embassy inner join patients on patients.id=appointments.patients_id ').where(:patients => {gender: params[:gender]  })    
+    end
+    render :layout => false
   end
 
   def show
@@ -31,4 +45,12 @@ class AppointmentsController < ApplicationController
   def attr_access
     params.require(:Appointment).permit(:patients_id,:appointment_time,:appointment_day,:appointment_embassy)
   end
+  def layout_resolve
+    if action_name=="search"
+      return nil
+    else
+      return "application"
+    end  
+  end
+  
 end

@@ -1,2 +1,117 @@
-<h1>Appointments#index</h1>
-<p>Find me in app/views/appointments/index.html.erb</p>
+<h1>Appointments</h1>
+<table class="table" >
+	<caption>
+		<table>
+			<tr>
+				<td>
+					<select name="gender" onchange="Search()" id="change_search">
+						<option value="Select">--Select Search Type--</option>
+						<option value="gender">Gender</option>
+						<option value="passport_no">Passport No</option>
+					</select>
+				</td>
+			</tr>
+			<tr style="display:none;" id="show_passport">
+				<td><input type="text" placeholder="Passport No" name="passport" class="get_passport" onkeyup="search_passport()"></td>
+			</tr>
+			<tr style="display:none;" id="show_gender">
+				<td>
+					<select id="gender_filter" onchange="search_gender()">
+						<option>--Select Gender--</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</caption>
+	<thead>
+		<tr>
+		<th>Passport No</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Gender</th>
+		<th>Date of Birth</th>
+		<th>Country Name</th>
+		<th>Time</th>
+		<th>Date</th>
+		<th colspan="2">Action</th>
+	</tr>
+	
+	</thead>
+	<tbody id="table_body">
+	<% @appointment.each do | a | %>
+	<tr class="appoinment_data">
+		<td><%= a.passport %></td>
+		<td><%= a.fname %></td>
+		<td><%= a.lname %></td>
+		<td><%= a.gender %></td>
+		<td><%= a.dob %></td>
+		<td><%= a.country_name %></td>
+		<td><%= a.appointment_time %></td>
+		<td><%= a.appointment_day %></td>
+		<td><a href="/patients/patient_reg?id=<%= a.patients_id %>">Edit Registration</a></td>
+		<td><button>Add Exam</button></td>
+	</tr>
+	<% end -%>
+	</tbody>
+</table>
+
+<script type="text/javascript">
+ function Search()
+ {
+ 	var search = $("#change_search").val();
+ 	if(search=='gender')
+ 	{
+ 		$("#show_gender").show();
+ 		$("#show_passport").hide();
+ 	}
+ 	else if(search=='passport_no')
+ 	{
+ 		$("#show_passport").show();
+ 		$("#show_gender").hide();	
+ 	}
+ 	else
+ 	{
+ 		$("#show_gender").hide();
+ 		$("#show_passport").hide();
+ 	}
+ }
+
+ function search_passport()
+ {
+ 	var passport_no = $(".get_passport").val();
+	$.ajax({
+		url:"../appointments/search",
+		method:"POST",
+		dataType:"html",
+		data:{"passport_no":passport_no},
+		success: function(data){
+		if(data.length>0)
+		{
+			$(".appoinment_data").hide();
+			$('#table_body').html(data);
+		}
+	}
+	})
+ }
+
+
+ function search_gender()
+ {
+	$.ajax({
+		url:"../appointments/search",
+		method:"POST",
+		dataType:"html",
+		data:{"gender":$("#gender_filter").val()},
+		success: function(data){
+		if(data.length>0)
+		{
+			$(".appoinment_data").hide();
+			$('#table_body').html(data);
+		}
+	}
+	});
+ }
+
+</script>
