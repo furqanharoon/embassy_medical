@@ -1,0 +1,30 @@
+<div class="page-header">
+	<h2>
+		Roles List
+	</h2>
+</div>
+
+<div class="page-content">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Serial #</th>
+				<th>Role Name</th>
+				<th colspan="2"><center>Actions</center></th>
+			</tr>	
+		</thead>
+		<tbody>
+			<% serial=0 %>
+			<% @roles.each do |r| %>
+			<% serial=serial+1 %>
+			<tr>
+				<td><%= serial %></td>
+				<td><%= r.role_name %></td>
+				<td><center><%= link_to "Delete" ,:controller=>"roles",:action=>"destroy",:id=>r.id %></center></td>
+				<td><center><%= link_to "Edit Previligies" ,:controller=>"roles",:action=>"edit",:id=>r.id %></center></td>
+				
+			</tr>	
+			<% end %>
+		</tbody>
+	</table>
+</div>

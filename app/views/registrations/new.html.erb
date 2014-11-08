@@ -1,10 +1,24 @@
 <%= form_for :registration ,:url=>{:controller => 'registrations', :action => 'create'} do |f| %>
 <div class="control-group">
+   <label class="control-label">First Name</label>
+     <div class="controls controls-row">
+        <input type="text" class="input-block-level"  name="registration[fname]" required>
+      </div>
+</div>
+<div class="control-group">
+   <label class="control-label">Last Name</label>
+     <div class="controls controls-row">
+        <input type="text" class="input-block-level"  name="registration[lname]" required>
+      </div>
+</div>
+
+<div class="control-group">
    <label class="control-label">User Name</label>
      <div class="controls controls-row">
         <input type="text" class="input-block-level"  name="registration[user_name]" required>
       </div>
 </div>
+
 <div class="control-group">
    <label class="control-label">Password</label>
      <div class="controls controls-row">

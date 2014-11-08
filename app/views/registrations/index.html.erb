@@ -1,15 +1,21 @@
 <table class="table">
 	<tr>
-		<th>Name</th>
+		<th colspan=2><center>Name</center></th>
+		<th>Username</th>
 		<th>Status</th>
-		<th colspan="2">Action</th>
+		<th colspan="3"><center>Action</center></th>
 	</tr>
 	<% @registration.each do |r| %>
 	<tr>
+		<td><center><%= r.fname %></center></td>
+		<td><center><%= r.lname %></center></td>
 		<td><%= r.user_name %></td>
 		<td><%= r.status ? 'Enable' :'Disable' %></td>
 		<td><a href="/registrations/destroy?id=<%= r.id %>">Delete</a></td>
-		<td><a href="/registrations/update?id=<%= r.id %>&&status=<%=r.status ? '0' :'1' %>"><%= r.status ? 'Disable' :'Enable' %></a></td>
+		<td><a href="/registrations/update?id=<%= r.id %>&&status=<%=r.status ? '0' :'1' %>"><%= r.status ? 'Disable' :'Enable' %></a></td>.
+		<td>
+			<%= link_to "Edit Perviligies" ,:action=>"edit_rights",:id=>r.id %>
+		</td>
 	</tr> 
 	<% end %>
 </table>
