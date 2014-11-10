@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'vdlr/index'
+
+  get 'vdlr/show'
+
+  get 'vdlr/new'
+
+  get 'vdlr/create'
+
+  get 'vdlr/edit'
+
+  get 'vdlr/update'
+
+  get 'vdlr/delete'
+
+  get 'vdlr/destroy'
+
   get 'roles/index'
 
   get 'roles/show'
