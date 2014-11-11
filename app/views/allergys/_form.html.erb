@@ -1,0 +1,24 @@
+<div class="span4">
+        <div class="control-group">
+            <label class="control-label">Allergic Name</label>
+            <div class="controls controls-row">
+                <!--<input type="text" class="input-block-level" name="allergy[allergy_name]">-->
+                <%= f.text_field :allergy_name , :class=>'input-block-level' %>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Allergic Reaction</label>
+            <div class="controls controls-row">
+                <%= f.text_field :allergy_reaction , :class=>'input-block-level' %>
+            </div>
+        </div>
+    </div>
+	<div class="control-group" style="clear:both">
+		<label class="control-label" style="float:left;">Allergic Status</label>
+		<div class="controls" style="float:left;margin-left:10px;">
+			<%= f.check_box :allergy_status , :class=>'input-block-level' %>
+		</div>
+		<p style="float:left;margin-left:10px;">Yes</p>
+	</div>

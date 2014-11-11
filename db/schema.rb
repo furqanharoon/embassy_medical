@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106060222) do
+ActiveRecord::Schema.define(version: 20141110140322) do
+
+  create_table "allergies", force: true do |t|
+    t.string   "allergy_name"
+    t.string   "allergy_reaction"
+    t.boolean  "allergy_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "appointments", force: true do |t|
     t.integer  "patients_id"
@@ -42,6 +50,36 @@ ActiveRecord::Schema.define(version: 20141106060222) do
   create_table "countries", force: true do |t|
     t.string   "country_name", limit: 50
     t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "extenders_allergies", force: true do |t|
+    t.integer  "Patient_id"
+    t.string   "allergy_name"
+    t.string   "allergy_reaction"
+    t.string   "medicine"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "healthextenders", force: true do |t|
+    t.integer  "Patient_id"
+    t.string   "height"
+    t.string   "weight"
+    t.string   "sbp"
+    t.string   "dbp"
+    t.string   "left_eye"
+    t.string   "right_eye"
+    t.string   "heart_rate"
+    t.string   "resp_rate"
+    t.string   "uncor_l20"
+    t.string   "uncor_r20"
+    t.string   "cor_l20"
+    t.string   "cor_r20"
+    t.boolean  "vaccination_status"
+    t.boolean  "pox_status"
+    t.boolean  "tb_status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
