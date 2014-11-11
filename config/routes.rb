@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'vdlr_results/index'
+
+  get 'vdlr_results/show'
+
+  get 'vdlr_results/new'
+
+  get 'vdlr_results/create'
+
+  get 'vdlr_results/edit'
+
+  get 'vdlr_results/update'
+
+  get 'vdlr_results/delete'
+
+  get 'vdlr_results/destroy'
+
   get 'vdlr/index'
 
   get 'vdlr/show'

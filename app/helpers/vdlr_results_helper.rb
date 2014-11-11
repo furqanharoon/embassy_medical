@@ -1,0 +1,2 @@
+module VdlrResultsHelper
+end
