@@ -1,0 +1,113 @@
+<div class="page-header">
+	<h2>
+		Add Medical Examtion
+	</h2>	
+</div>
+<div class="page-content">
+
+<%= form_for :exam_patient , :url=>{:action=>"insert_exam"}  do |f| %>
+<%= f.hidden_field :patient_id,:value=>@patient.id %>
+										<div class="control-group">
+										<label class="control-label">Exam Date</label>
+											<div class="controls">
+												<!--id="dp_1"-->
+                                                <input name="exam_patient[exam_date]" value="<%= DateTime.now.strftime('%Y-%m-%d') %>" readonly="" placeholder="MM-DD-YEAR" size="16" class="m-ctrl-medium" required="" type="text">
+											</div>
+									</div>
+
+                                        <div class="control-group">
+                                    <label class="control-label">Exam Expiry Months</label>
+                                    <div class="controls">
+                                                                       <input name="exam_patient[exam_exp_indicator]" id="six_months" value="6"   required="" type="radio"
+                                                                       <%= (@patient.tb_status ? "disabled" : "checked") %>
+                                                                       >
+            
+                                        <label class="radio">
+             									6 Months
+                                        </label>
+                                        <input name="exam_patient[exam_exp_indicator]" value="3" id="three_months"  
+                                                                       <%= (@patient.tb_status ? "checked" : "disabled") %> required="" type="radio">
+                                        <label class="radio">
+
+                                            3 Mothns
+                                        </label>
+                                    </div>
+                                </div>
+								<div class="control-group">
+                                    <label class="control-label">Exam Expiry</label>
+
+                                    <div class="controls">
+                                    <!--id="dp_examexpiry"-->
+                                        <input value="<%= (@patient.tb_status ? 6.month.ago.strftime('%Y-%m-%d') : 3.month.ago.strftime('%Y-%m-%d')) %>" name="exam_patient[exam_exp_date]" readonly="" placeholder="MM-DD-YEAR" size="16" class="m-ctrl-medium" required="" type="text">
+                                    </div>
+                           	    </div>
+
+                                       <div class="control-group">
+                                    <label class="control-label">Exam Place City</label>
+                                    <div class="controls">
+                                        <%= f.select :exam_place_city, @cities  %>
+                                    </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                    <label class="control-label">Exam Place Country</label>
+                                    <div class="controls">
+                                        <%= f.select :exam_place_country,@countries  %>
+                                    </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                    <label class="control-label">Radiology Services</label>
+                                    <div class="controls">
+                                        <select class="input-large m-wrap" tabindex="1" name="exam_patient[radiology_services]" required="">
+                                            <option value="wilcare">WILCARE</option>
+                                        </select>
+                                    </div>
+                                    </div>
+
+                                     <div class="control-group">
+                                    <label class="control-label">Screening Site</label>
+                                    <div class="controls">
+                                        <select class="input-large m-wrap" tabindex="1" name="exam_patient[screening_site]" required="">
+                                            <option value="wilcare">WILCARE</option>
+                                        </select>
+                                    </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                    <label class="control-label">Lab Name for Syphillis</label>
+                                    <div class="controls">
+                                        <select class="input-large m-wrap" tabindex="1" name="exam_patient[lab_syphillis]" required="">
+                                            <option value="wilcare">WILCARE</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                    <div class="control-group">
+                                    <label class="control-label">Lab Name For TB</label>
+                                    <div class="controls">
+                                         <select class="input-large m-wrap" tabindex="1" name="exam_patient[lab_tb]" required="">
+                                            <option value="wilcare">AMC</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                    <div class="control-group">
+                                    <label class="control-label">Panel Physician</label>
+                                    <div class="controls">
+                                         <select class="input-large m-wrap" tabindex="1" name="exam_patient[panel_physician]" required="">
+                                        	<option value="">Select Physician</option>
+											                                            <option value="Jawad">Dr Jawad</option>
+											                                            <option value="Jawa">Dr Jawa</option>
+											                                            <option value="Doctor">Dr Doctor</option>
+											                                            <option value="asd">Dr asd</option>
+											                                        </select>
+                                    </div>
+
+
+                                    <div class="controls">
+                                         <%= f.submit "insert" %>
+                                    </div>
+                                    </div>
+
+
+      <% end %>                              
+</div>
