@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'vdlr_results/index'
 
   get 'vdlr_results/show'
@@ -31,7 +30,37 @@ Rails.application.routes.draw do
   get 'vdlr/delete'
 
   get 'vdlr/destroy'
+  get 'allergys/new'
 
+  get 'allergys/index'
+
+  get 'allergys/show'
+
+  get 'allergys/create'
+
+  get 'allergys/edit'
+
+  get 'allergys/update'
+
+  get 'allergys/delete'
+
+  get 'allergys/destroy'
+
+  get 'health_cares/index'
+
+  get 'health_cares/new'
+
+  get 'health_cares/show'
+
+  get 'health_cares/create'
+
+  get 'health_cares/edit'
+
+  get 'health_cares/update'
+
+  get 'health_cares/delete'
+
+  get 'health_cares/destroy'
   get 'roles/index'
 
   get 'roles/show'
