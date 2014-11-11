@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'appointments/exam_add'
+
+  get 'appointments/insert_exam'
+
   get 'roles/index'
 
   get 'roles/show'

@@ -51,7 +51,7 @@
 		<td><%= a.appointment_time %></td>
 		<td><%= a.appointment_day %></td>
 		<td><a href="/patients/patient_reg?id=<%= a.patients_id %>">Edit Registration</a></td>
-		<td><button>Add Exam</button></td>
+		<td><%= link_to "Add Exam" ,:controller=>"appointments",:action=>"exam_add" ,:id=>a.patients_id %></td>
 	</tr>
 	<% end -%>
 	</tbody>
