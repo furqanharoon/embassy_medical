@@ -1,0 +1,283 @@
+<div style="width:200px;float:left;">
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Last Name</label>
+            <div class="controls controls-row">
+                <input type="text" value="<%= @Patient.lname %>" class="input-block-level" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">First Name</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level" value="<%= @Patient.fname %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="control-group">
+            <label class="control-label">MI</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level" value="<%= @Patient.midname %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="control-group">
+            <label class="control-label">Alien No</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level" value="<%= @Patient.alien_no %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Sex</label>
+            <div class="controls">
+                <input type="text" class="input-block-level" value="<%= @Patient.gender %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span5">
+       <div class="control-group">
+            <label class="control-label">Date of Birth</label>
+
+            <div class="controls">
+                <input id="dp1" type="text" value="<%= @Patient.dob %>"  placeholder="MM-DD-YEAR" size="16" class="input-block-level" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span2">
+        <div class="control-group">
+            <label class="control-label">Years</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level" value="<%= @Patient.years %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span2">
+        <div class="control-group">
+            <label class="control-label">Months</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level"  value="<%= @Patient.months %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span2">
+        <div class="control-group">
+            <label class="control-label">Days</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level" value="<%= @Patient.days %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="control-group">
+            <label class="control-label">Visa Type</label>
+            <div class="controls controls-row">
+                <input type="text" value="<%= @Patient.visa_type %>" class="input-block-level" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Passport No</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level" value="<%= @Patient.passport %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Exam Date</label>
+            <div class="controls controls-row">
+                <input type="text" id="dp_tst" value=""  placeholder="MM-DD-YEAR" size="16" class="input-block-level" readonly>
+            </div>
+        </div>
+    </div>
+</div>
+<%= form_for :healthextender , :url=>{:controller=>'healthCares' ,:action=>'create'} do |f| %>
+	<input type="hidden" name="healthextender[Patient_id]" value="<%= @Patient.id %>">
+    <div style="width:200px;float:left;">
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Height</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[height]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Weight</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[weight]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">SBP</label>
+                <div class="controls controls-row">
+                    <input type="text" name="healthextender[sbp]" class="input-block-level">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">DBP</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[dbp]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Left Eye</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[left_eye]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Right Eye</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[right_eye]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Heart Rate</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[heart_rate]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Resp. Rate</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[resp_rate]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Uncor.L20</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[uncor_l20]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Uncor.R20</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[uncor_r20]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Cor.L20</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[cor_l20]">
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Cor.R20</label>
+                <div class="controls controls-row">
+                    <input type="text" class="input-block-level"  name="healthextender[cor_r20]">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width:500px;float:left;">
+        <div class="control-group">
+            <label class="control-label" style="float:left;">Vaccination Record</label>
+            <div class="controls" style="float:left;margin-left:10px;">
+                <input type="checkbox" name="healthextender[vaccination_status]" value="1">
+            </div>
+            <p style="float:left;margin-left:10px;">Yes</p>
+        </div>
+
+        <div class="control-group" style="clear:both">
+            <label class="control-label" style="float:left;">History Of Chicken Pox</label>
+             <div class="controls" style="float:left;margin-left:10px;">
+                <input type="checkbox" name="healthextender[pox_status]" value="1">
+            </div>
+            <p style="float:left;margin-left:10px;">Yes</p>
+        </div>
+
+        <div class="control-group" style="clear:both">
+            <label class="control-label" style="float:left;">History of TB</label>
+             <div class="controls" style="float:left;margin-left:10px;">
+                <input type="checkbox" name="healthextender[tb_status]" value="1">
+            </div>
+            <p style="float:left;margin-left:10px;">Yes</p>
+        </div>
+        <div class="control-group" style="clear:both">
+            <label class="control-label" style="float:left;">Allergies</label>
+            <div class="controls" style="float:left;margin-left:10px;">
+                <input type="checkbox"  value="1" onclick="allergies()">
+            </div>
+            <p style="float:left;margin-left:10px;">Yes</p>
+        </div>
+        <div class="allergy" style="display:none;clear:both;">
+			<div style="float:left; margin-right:2px;">
+				<select class="input-large m-wrap allergy_main" style="width:150px;"  required onchange="allergy_reaction()" name="healthextender[allergy_name][]">
+					<option value="">--Select Allergy--</option>
+                    <% @allergy.each do |a| %>
+					<option value="<%= a.id %>"><%= a.allergy_name %></option>
+                    <% end %>
+				</select>
+			</div>
+			<div style="float:left; margin-right:2px;">
+				<select id="reaction" name="healthextender[allergy_reaction][]" class="input-large m-wrap" style="width:150px;"  required>
+                    <option value="">--Select Reaction--</option>
+                    <% @allergy.each do |r| %>
+					<option value="<%= r.id %>"><%= r.allergy_reaction %></option>
+                    <% end %>
+					</select>
+			</div>
+			<div style="float:left">
+				<input type="text" name="healthextender[medicine][]" class="input-medium" id="add_allergy" required style="width:105px;">
+			</div>
+        </div>
+        <div style="clear:both;float:left;">
+            <input type="submit" value="Submit">
+        </div>
+    </div>
+<% end %>
+<script type="text/javascript">
+function allergies()
+{
+	$(".allergy").toggle();
+}
+
+var ID = 0;
+$('#add_allergy').live('keypress', function(e) {
+    if (e.keyCode === 9) {
+        e.preventDefault();
+        $(".allergy").append('<div style="float:left; margin-right:2px;"><select class="input-large m-wrap allergy'+ID+'" style="width:150px;"  required onchange="allergy_reaction1('+ID+')" name="healthextender[allergy_name][]"><option value="">--Select Allergy--</option><% @allergy.each do |b| %><option value="<%= b.id %>"><%= b.allergy_name %></option><% end %></select></div><div style="float:left; margin-right:2px;"><select id="reaction'+ID+'" class="input-large m-wrap" style="width:150px;"  required name="healthextender[allergy_reaction][]"><option value="">--Select Reaction--</option><% @allergy.each do |d| %><option value="<%= d.id %>"><%= d.allergy_reaction %></option><% end %></select></div><div style="float:left"><input type="text" class="input-medium" id="add_allergy" required style="width:105px;" name="healthextender[medicine][]"></div>');
+            ID++;
+    }
+});
+
+function allergy_reaction()
+{
+    var id = $('.allergy_main').val();
+    $("#reaction").val(id); 
+}
+
+function allergy_reaction1(ID)
+{
+    var id = $('.allergy'+ID).val();
+    $("#reaction"+ID).val(id); 
+}
+</script>
