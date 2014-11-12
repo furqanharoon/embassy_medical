@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112114248) do
+ActiveRecord::Schema.define(version: 20141112081944) do
 
   create_table "allergies", force: true do |t|
     t.string   "allergy_name"
@@ -54,6 +54,20 @@ ActiveRecord::Schema.define(version: 20141112114248) do
     t.datetime "updated_at"
   end
 
+  create_table "doctors", force: true do |t|
+    t.string   "name"
+    t.string   "time_interval"
+    t.string   "remarks"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "cell1"
+    t.string   "cell2"
+    t.string   "email"
+    t.string   "fee_charges"
+    t.string   "charges_account"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
   create_table "exam_patients", force: true do |t|
     t.integer  "patient_id"
     t.string   "exam_place_city",    limit: 20

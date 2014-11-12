@@ -31,8 +31,24 @@ Rails.application.routes.draw do
   get 'physician/destroy'
 
   get 'vdlr_results/index'
+  get 'doctors/index'
+
+  get 'doctors/show'
+
+  get 'doctors/new'
+
+  get 'doctors/create'
+
+  get 'doctors/edit'
+
+  get 'doctors/update'
+
+  get 'doctors/delete'
+
+  get 'doctors/destroy'
 
   get 'vdlr_results/index'
+
   get 'vdlr_results/show'
 
   get 'vdlr_results/new'
