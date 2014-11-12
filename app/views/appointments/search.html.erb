@@ -9,6 +9,6 @@
 		<td><%= s.appointment_time %></td>
 		<td><%= s.appointment_day %></td>
 		<td><a href="/patients/patient_reg?id=<%= s.patients_id %>">Edit Registration</a></td>
-		<td><button>Add Exam</button></td>
+		<td><%= link_to "Add Exam" ,:controller=>"appointments",:action=>"exam_add" ,:id=>s.id %></td>
 	</tr>
 <% end %>

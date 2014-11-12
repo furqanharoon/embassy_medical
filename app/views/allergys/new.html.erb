@@ -1,0 +1,7 @@
+<h1>Allergys</h1>
+<%= form_for :allergy , :url=>{:controller=>'allergys' ,:action=>'create'} do |f| %>
+<%= render(:partial=>'form',:locals=>{:f=>f}) %>
+	<div style="clear:both;float:left;">
+            <input type="submit" value="Submit">
+    </div>
+<% end %>

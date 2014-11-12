@@ -1,0 +1,19 @@
+<h1>Allergys</h1>
+<div align="center"><a href="/allergys/new">Go to Add New Record</a></div>
+<table class="table">
+	<tr>
+		<th>Allergy Name</th>
+		<th>Allergy Reaction</th>
+		<th>Status</th>
+		<th colspan="2">Action</th>
+	</tr>
+	<% @allergy.each do |h| %>
+	<tr>
+		<td><%= h.allergy_name %></td>
+		<td><%= h.allergy_reaction %></td>
+		<td><%= h.allergy_status==true ? 'Active' : 'InActive' %></td>
+		<td><a href="/allergys/destroy?id=<%= h.id %>">Delete</a></td>
+		<td><a href="/allergys/edit?id=<%= h.id %>">Edit</a></td>
+	</tr>
+	<% end %>
+</table>

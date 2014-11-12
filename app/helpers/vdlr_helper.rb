@@ -1,0 +1,2 @@
+module VdlrHelper
+end
