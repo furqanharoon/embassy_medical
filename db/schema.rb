@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110140322) do
+ActiveRecord::Schema.define(version: 20141112114248) do
 
   create_table "allergies", force: true do |t|
     t.string   "allergy_name"
@@ -98,6 +98,15 @@ ActiveRecord::Schema.define(version: 20141110140322) do
     t.boolean  "vaccination_status"
     t.boolean  "pox_status"
     t.boolean  "tb_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lots", force: true do |t|
+    t.integer  "country_id"
+    t.string   "lot_no"
+    t.date     "manufacturing_date"
+    t.date     "expiry_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -227,5 +236,40 @@ ActiveRecord::Schema.define(version: 20141110140322) do
     t.datetime "updated_at"
     t.string   "schedules_time_duration"
   end
+
+  create_table "vdlr_results", force: true do |t|
+    t.integer  "exam_patient_id"
+    t.string   "test_type"
+    t.date     "result_date"
+    t.string   "read_by"
+    t.string   "procedure_name"
+    t.boolean  "result"
+    t.float    "cutoff_value",    limit: 24
+    t.float    "patient_value",   limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "patients_id"
+    t.string   "result_mm"
+  end
+
+  add_index "vdlr_results", ["exam_patient_id"], name: "index_vdlr_results_on_exam_patient_id", using: :btree
+  add_index "vdlr_results", ["patients_id"], name: "index_vdlr_results_on_patients_id", using: :btree
+
+  create_table "vdlrs", force: true do |t|
+    t.date     "date_applied"
+    t.string   "test_by"
+    t.string   "injection_site"
+    t.string   "supplier_name"
+    t.string   "lot_num"
+    t.date     "manufacture_date"
+    t.date     "expiry_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "patients_id"
+    t.integer  "exam_patients_id"
+  end
+
+  add_index "vdlrs", ["exam_patients_id"], name: "index_vdlrs_on_exam_patients_id", using: :btree
+  add_index "vdlrs", ["patients_id"], name: "index_vdlrs_on_patients_id", using: :btree
 
 end

@@ -1,5 +1,73 @@
 Rails.application.routes.draw do
+  get 'lot/index'
 
+  get 'lot/new'
+
+  get 'lot/show'
+
+  get 'lot/create'
+
+  get 'lot/edit'
+
+  get 'lot/update'
+
+  get 'lot/delete'
+
+  get 'lot/destroy'
+
+  get 'physician/index'
+
+  get 'physician/new'
+
+  get 'physician/create'
+
+  get 'physician/show'
+
+  get 'physician/edit'
+
+  get 'physician/update'
+
+  get 'physician/delete'
+
+  get 'physician/destroy'
+
+  get 'vdlr_results/index'
+
+  get 'vdlr_results/show'
+
+  get 'vdlr_results/new'
+
+  get 'vdlr_results/create'
+
+  get 'vdlr_results/edit'
+
+  get 'vdlr_results/update'
+
+  get 'vdlr_results/delete'
+
+  get 'vdlr_results/destroy'
+
+  get 'vdlr/index'
+
+  get 'vdlr/show'
+
+  get 'vdlr/new'
+
+  get 'vdlr/create'
+
+  get 'vdlr/edit'
+
+  get 'vdlr/save_vdlr_result'
+
+  get 'vdlr/record'
+
+  get 'vdlr/update'
+
+  get 'vdlr/delete'
+  get 'vdlr/vdlr_result'
+  post 'vdlr/vdlr_result'
+
+  get 'vdlr/destroy'
   get 'allergys/new'
 
   get 'allergys/index'
@@ -31,7 +99,6 @@ Rails.application.routes.draw do
   get 'health_cares/delete'
 
   get 'health_cares/destroy'
-
   get 'roles/index'
 
   get 'roles/show'
@@ -204,6 +271,7 @@ Rails.application.routes.draw do
   get 'patients/destroy'
 
   get 'appointment/search'
+
 
 
   ##------------>>>Dont repeat this pattern<<<------------##

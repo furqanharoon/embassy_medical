@@ -1,0 +1,21 @@
+<div style="border: 1px solid black;">
+	<p>First Name: <input type="text" value="<%= @patient.fname %>"></p>
+	<p>Last Name: <input type="text" value="<%= @patient.lname %>"></p>
+	<p>Middle Name: <input type="text" value="<%= @patient.midname %>"></p>
+	<p>Passport: <input type="text" value="<%= @patient.passport %>"></p>
+	<p>Date of birth: <input type="text" value="<%= @patient.dob %>"></p>
+	<p>Visa Type: <input type="text" value="<%= @patient.visa_type %>"></p>
+</div>
+<h2>VDLR Result Form</h2>
+<%= form_for(:vdlr_result, :url => {:controller => 'vdlr_results', :action => 'create'}) do |f| %>
+	
+	<p> Result Date:</br> <%= f.date_select :result_date %> </p>
+	<p> Result Read by:</br> <%= f.text_field :read_by , :value => "Furqan" ,:readonly => true %> </p>
+	<p> Test Procedure Name:<br/> <%= f.text_field :procedure_name %></p>
+	<p>Result:<%= f.select :result , options_for_select([["Select One", ""], "Positive", "Negative"]) %></p>
+	<p> Test Procedure Name:<br/> <%= f.text_field :procedure_name %></p>
+	<p> Cut off value:<br/> <%= f.text_field :cutoff_value %></p>
+	<p> Patient value:<br/> <%= f.text_field :patient_value %></p>
+
+	<%= f.submit "Submit Results" %>
+<% end %>
