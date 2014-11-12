@@ -1,0 +1,68 @@
+<div style="border: 1px solid black;">
+	<p>First Name: <input type="text" value="<%= @pat.fname %>"></p>
+	<p>Last Name: <input type="text" value="<%= @pat.lname %>"></p>
+	<p>Middle Name: <input type="text" value="<%= @pat.midname %>"></p>
+	<p>Passport: <input type="text" value="<%= @pat.passport %>"></p>
+	<p>Date of birth: <input type="text" value="<%= @pat.dob %>"></p>
+	<p>Visa Type: <input type="text" value="<%= @pat.visa_type %>"></p>
+</div>
+
+
+<%= form_for :vdlr_result,:url=>{:action=>"save_vdlr_result",:id=>params[:id],:test_id=>params[:test_id]} do |f|  %>
+				<%= f.hidden_field :exam_patient_id,:value=>params[:test_id] %>
+				<%= f.hidden_field :patients_id,:value=>params[:id] %>
+                        <div class="row-fluid">
+                               <div class="control-group">
+                               	   <label class="control-label">Result Date</label>
+                                  <div id="datetimepicker5" class="input-append" style="margin-left: 20px;">
+                                    <input data-format="MM-dd-yyyy" name="vdlr_result[result_date]" id="cname" required="" type="text">
+                                    <span class="add-on">
+                                      <i class="icon-calendar" data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                      </i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                               <label class="control-label">Result Read by</label>
+                                 <div class="controls controls-row">
+                                    <input name="vdlr_result[read_by]" class="input-block-level" style="width: 248px;" id="cname" required="" type="text">
+                                  </div>
+                           </div>
+
+							<div class="control-group">
+                               <label class="control-label">Test Procedure Name</label>
+                                 <div class="controls controls-row">
+                                                <select name="vdlr_result[test_procedure_name]" class="input-medium m-wrap" tabindex="1" style="width: 248px;" required="">
+                                                    <option value="byelisa">BY ELISA</option>
+                                                </select>
+                                            </div>
+                           </div>
+                           <div class="control-group">
+                               <label class="control-label">Result</label>
+                                 <div class="controls controls-row">
+                                                <select name="vdlr_result[result]" class="input-medium m-wrap" tabindex="1" style="width: 248px;" required="">
+                                                    <option value="notdone">Not Done</option>
+                                                    <option value="notdone">+ve</option>
+                                                    <option value="notdone">-ve</option>
+                                                </select>
+                                 </div>
+                           </div>
+                           <div class="control-group">
+                               <label class="control-label">Cut Off Value</label>
+                                 <div class="controls controls-row">
+                                    <input class="input-block-level" name="vdlr_result[cutoff_value]" style="width: 248px;" required="" type="text">
+                                  </div>
+                           </div>
+                           <div class="control-group">
+                               <label class="control-label">Patient Value</label>
+                                 <div class="controls controls-row">
+                                    <input class="input-block-level" name="vdlr_result[patient_value]" style="width: 248px;" required="" type="text">
+                                  </div>
+                           </div>
+                           <div class="form-actions">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="button" class="btn">Cancel</button>
+                            </div>
+                          </div>
+						</form>
+                        <% end %>

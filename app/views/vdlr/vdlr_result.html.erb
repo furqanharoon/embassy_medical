@@ -1,0 +1,46 @@
+<div style="border: 1px solid black;">
+	<table class="table" >
+	<thead>
+	<tr>
+		<th>Passport No</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Gender</th>
+		<th>Date of Birth</th>
+		<th>Visa Type</th>
+		<th colspan="2">Action</th>
+	</tr>
+	
+	</thead>
+	<tbody id="table_body">
+	<% @patients_p.each do | a | %>
+	<tr>
+		<td><%= a.passport %></td>
+		<td><%= a.fname %></td>
+		<td><%= a.lname %></td>
+		<td><%= a.gender %></td>
+		<td><%= a.dob %></td>
+		<td><%= a.visa_type %></td>
+		<td><a href="/vdlr/vdlr_record?id=<%= a.id %>&test_id=<%= a.exam_id %>">VDLR Result</a></td>
+		<td><button>Add Exam</button></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+</div>
+<h2>VDLR Result Form</h2>
+<%= form_for(:vdlr_result, :url => {:controller => 'vdlr', :action => 'send_result'}) do |f| %>
+	<%= f.hidden_field :patients_id,:value=>params[:id] %>
+	<%= f.hidden_field :exam_patients_id,:value=>params[:test_id] %>
+	<p> Result Date:</br> <%= f.date_select :date_applied %> </p>
+	<p> Result Read by:</br> <%= f.text_field :test_by , :value => "Furqan" ,:readonly => true %> </p>
+	
+	<p>Result:<%= f.select :injection_site , options_for_select([["Select One", ""], "Left Leg", "Right Leg","Left Forearm","Right Forearm"]) %></p>
+	<p>Supplier Details:</p>
+	<p>Supplier:<br/> <%= f.text_field :supplier_name %></p>
+	<p>Lot No:<br/> <%= f.text_field :lot_num %></p>
+	<p>Manufacture Date:<br/> <%= f.date_select :manufacture_date %></p>
+	<p>Expiry Date:<br/> <%= f.date_select :expiry_date %></p>
+
+	<%= f.submit "Submit Results" %>
+<% end %>
