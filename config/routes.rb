@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'lot/index'
-
   get 'lot/new'
 
   get 'lot/show'
@@ -33,6 +32,7 @@ Rails.application.routes.draw do
 
   get 'vdlr_results/index'
 
+  get 'vdlr_results/index'
   get 'vdlr_results/show'
 
   get 'vdlr_results/new'
