@@ -12,7 +12,7 @@
 	
 	</thead>
 	<tbody id="table_body">
-	<% @patients.each do | a | %>
+	<% @patients_c.each do | a | %>
 	<tr class="appoinment_data">
 		<td><%= a.passport %></td>
 		<td><%= a.fname %></td>
@@ -20,7 +20,7 @@
 		<td><%= a.gender %></td>
 		<td><%= a.dob %></td>
 		<td><%= a.visa_type %></td>
-		<td><a href="/vdlr/test?id=<%= a.id %>&test_id=<%= a.exam_id %>">VDLR Injection</a></td>
+		<td><a href="/vdlr/test_child?id=<%= a.id %>&test_id=<%= a.exam_id %>">VDLR Injection</a></td>
 		<td><button>Add Exam</button></td>
 	</tr>
 	<% end %>

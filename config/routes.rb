@@ -25,9 +25,15 @@ Rails.application.routes.draw do
 
   get 'vdlr/edit'
 
+  get 'vdlr/save_vdlr_result'
+
+  get 'vdlr/record'
+
   get 'vdlr/update'
 
   get 'vdlr/delete'
+  get 'vdlr/vdlr_result'
+  post 'vdlr/vdlr_result'
 
   get 'vdlr/destroy'
   get 'allergys/new'
@@ -233,6 +239,7 @@ Rails.application.routes.draw do
   get 'patients/destroy'
 
   get 'appointment/search'
+
 
 
   ##------------>>>Dont repeat this pattern<<<------------##

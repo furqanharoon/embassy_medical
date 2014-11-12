@@ -1,4 +1,5 @@
-<table class="table" >
+<div style="border: 1px solid black;">
+	<table class="table" >
 	<thead>
 	<tr>
 		<th>Passport No</th>
@@ -12,17 +13,19 @@
 	
 	</thead>
 	<tbody id="table_body">
-	<% @patients.each do | a | %>
-	<tr class="appoinment_data">
+	<% @patients_res.each do | a | %>
+	<tr>
 		<td><%= a.passport %></td>
 		<td><%= a.fname %></td>
 		<td><%= a.lname %></td>
 		<td><%= a.gender %></td>
 		<td><%= a.dob %></td>
 		<td><%= a.visa_type %></td>
-		<td><a href="/vdlr/test?id=<%= a.id %>&test_id=<%= a.exam_id %>">VDLR Injection</a></td>
+		<td><a href="/vdlr/chilld_form?id=<%= a.id %>&test_id=<%= a.exam_id %>">VDLR Result</a></td>
 		<td><button>Add Exam</button></td>
 	</tr>
 	<% end %>
 	</tbody>
 </table>
+</div>
+

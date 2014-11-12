@@ -1,16 +1,16 @@
 <div style="border: 1px solid black;">
-	<p>First Name: <input type="text" value="<%= @patient.fname %>"></p>
-	<p>Last Name: <input type="text" value="<%= @patient.lname %>"></p>
-	<p>Middle Name: <input type="text" value="<%= @patient.midname %>"></p>
-	<p>Passport: <input type="text" value="<%= @patient.passport %>"></p>
-	<p>Date of birth: <input type="text" value="<%= @patient.dob %>"></p>
-	<p>Visa Type: <input type="text" value="<%= @patient.visa_type %>"></p>
+	<p>First Name: <input type="text" value="<%= @patients_t.fname %>"></p>
+	<p>Last Name: <input type="text" value="<%= @patients_t.lname %>"></p>
+	<p>Middle Name: <input type="text" value="<%= @patients_t.midname %>"></p>
+	<p>Passport: <input type="text" value="<%= @patients_t.passport %>"></p>
+	<p>Date of birth: <input type="text" value="<%= @patients_t.dob %>"></p>
+	<p>Visa Type: <input type="text" value="<%= @patients_t.visa_type %>"></p>
 </div>
 
 <h2>VDLR Result Form</h2>
 <%= form_for(:vdlr, :url => {:controller => 'vdlr', :action => 'create'}) do |f| %>
-	<%= f.hidden_field :patients_id,:value=>params[:id] %>
-	<%= f.hidden_field :exam_patients_id,:value=>params[:test_id] %>
+	<%= f.hidden_field :patients_id,:value=> params[:id] %>
+	<%= f.hidden_field :exam_patients_id,:value=> params[:test_id] %>
 	<p> Result Date:</br> <%= f.date_select :date_applied %> </p>
 	<p> Result Read by:</br> <%= f.text_field :test_by , :value => "Furqan" ,:readonly => true %> </p>
 	
