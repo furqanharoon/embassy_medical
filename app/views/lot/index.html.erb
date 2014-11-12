@@ -1,0 +1,22 @@
+<h1>View Lot</h1>
+<div align="center"><a href="/lot/new">Add New Lot</a></div>
+<h1>Health Care Record </h1>
+<table class="table">
+	<tr>
+		<th>Sr#</th>
+		<th>Country Name</th>
+		<th>Lot Number</th>
+		<th>Manufacturing Date</th>
+		<th>Expiry Date</th>
+	</tr>
+	<% @lot.each do |h| @i=1%>
+	<tr>
+		<td><%= @i %></td>
+		<td><%= h.country_name %></td>
+		<td><%= h.lot_no %></td>
+		<td><%= h.manufacturing_date %></td>
+		<td><%= h.expiry_date %></td>
+	</tr>
+	<% @i = @i+1 %>
+	<% end %>
+</table>
