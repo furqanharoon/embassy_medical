@@ -1,0 +1,43 @@
+<h1>Add Lot</h1>
+<%= form_for :lot , :url=>{:controller=>'lot' , :action=>'create'} do |f| %>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Country</label>
+            <div class="controls controls-row">
+                <select name="lot[country_id]">
+                	<option>--Select Country--</option>
+                	<% @country.each do |c| %>
+                	<option value="<%= c.id %>"><%= c.country_name %></option>
+                	<% end %>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Lot No.</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level" name="lot[lot_no]">
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Manufacturing Date</label>
+            <div class="controls controls-row">
+                <%= f.date_select :manufacturing_date %>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Expiry Date</label>
+            <div class="controls controls-row">
+                <%= f.date_select :expiry_date %>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:10px;">
+    	<input type="submit" value="Submit">
+    </div>
+<% end %>

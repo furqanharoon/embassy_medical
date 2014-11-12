@@ -1,4 +1,35 @@
 Rails.application.routes.draw do
+  get 'lot/index'
+  get 'lot/new'
+
+  get 'lot/show'
+
+  get 'lot/create'
+
+  get 'lot/edit'
+
+  get 'lot/update'
+
+  get 'lot/delete'
+
+  get 'lot/destroy'
+
+  get 'physician/index'
+
+  get 'physician/new'
+
+  get 'physician/create'
+
+  get 'physician/show'
+
+  get 'physician/edit'
+
+  get 'physician/update'
+
+  get 'physician/delete'
+
+  get 'physician/destroy'
+
   get 'vdlr_results/index'
   get 'doctors/index'
 
@@ -15,6 +46,9 @@ Rails.application.routes.draw do
   get 'doctors/delete'
 
   get 'doctors/destroy'
+
+  get 'vdlr_results/index'
+
   get 'vdlr_results/show'
 
   get 'vdlr_results/new'

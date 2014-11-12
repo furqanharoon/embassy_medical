@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20141112081944) do
 
   create_table "allergies", force: true do |t|
@@ -55,7 +54,6 @@ ActiveRecord::Schema.define(version: 20141112081944) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   create_table "doctors", force: true do |t|
     t.string   "name"
     t.string   "time_interval"
@@ -114,6 +112,15 @@ ActiveRecord::Schema.define(version: 20141112081944) do
     t.boolean  "vaccination_status"
     t.boolean  "pox_status"
     t.boolean  "tb_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lots", force: true do |t|
+    t.integer  "country_id"
+    t.string   "lot_no"
+    t.date     "manufacturing_date"
+    t.date     "expiry_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
