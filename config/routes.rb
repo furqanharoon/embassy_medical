@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'doctors/index'
+
+  get 'doctors/show'
+
+  get 'doctors/new'
+
+  get 'doctors/create'
+
+  get 'doctors/edit'
+
+  get 'doctors/update'
+
+  get 'doctors/delete'
+
+  get 'doctors/destroy'
+
   get 'roles/index'
 
   get 'roles/show'

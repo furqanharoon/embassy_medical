@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106060222) do
+ActiveRecord::Schema.define(version: 20141112112518) do
+
+  create_table "allergies", force: true do |t|
+    t.string   "allergy_name"
+    t.string   "allergy_reaction"
+    t.boolean  "allergy_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "appointments", force: true do |t|
     t.integer  "patients_id"
@@ -42,6 +50,69 @@ ActiveRecord::Schema.define(version: 20141106060222) do
   create_table "countries", force: true do |t|
     t.string   "country_name", limit: 50
     t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "doctors", force: true do |t|
+    t.string   "name"
+    t.string   "time_interval"
+    t.string   "remarks"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "cell1"
+    t.string   "cell2"
+    t.string   "email"
+    t.string   "fee_charges"
+    t.string   "charges_account"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exam_patients", force: true do |t|
+    t.integer  "patient_id"
+    t.string   "exam_place_city",    limit: 20
+    t.string   "exam_place_country", limit: 20
+    t.date     "exam_date"
+    t.integer  "exam_exp_indicator"
+    t.date     "exam_exp_date"
+    t.string   "radiology_services", limit: 20
+    t.string   "screening_site",     limit: 20
+    t.string   "lab_syphillis",      limit: 20
+    t.string   "lab_tb",             limit: 20
+    t.string   "panel_physician",    limit: 20
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exam_patients", ["patient_id"], name: "index_exam_patients_on_patient_id", using: :btree
+
+  create_table "extenders_allergies", force: true do |t|
+    t.integer  "Patient_id"
+    t.string   "allergy_name"
+    t.string   "allergy_reaction"
+    t.string   "medicine"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "healthextenders", force: true do |t|
+    t.integer  "Patient_id"
+    t.string   "height"
+    t.string   "weight"
+    t.string   "sbp"
+    t.string   "dbp"
+    t.string   "left_eye"
+    t.string   "right_eye"
+    t.string   "heart_rate"
+    t.string   "resp_rate"
+    t.string   "uncor_l20"
+    t.string   "uncor_r20"
+    t.string   "cor_l20"
+    t.string   "cor_r20"
+    t.boolean  "vaccination_status"
+    t.boolean  "pox_status"
+    t.boolean  "tb_status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -171,5 +242,40 @@ ActiveRecord::Schema.define(version: 20141106060222) do
     t.datetime "updated_at"
     t.string   "schedules_time_duration"
   end
+
+  create_table "vdlr_results", force: true do |t|
+    t.integer  "exam_patient_id"
+    t.string   "test_type"
+    t.date     "result_date"
+    t.string   "read_by"
+    t.string   "procedure_name"
+    t.boolean  "result"
+    t.float    "cutoff_value",    limit: 24
+    t.float    "patient_value",   limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "patients_id"
+    t.string   "result_mm"
+  end
+
+  add_index "vdlr_results", ["exam_patient_id"], name: "index_vdlr_results_on_exam_patient_id", using: :btree
+  add_index "vdlr_results", ["patients_id"], name: "index_vdlr_results_on_patients_id", using: :btree
+
+  create_table "vdlrs", force: true do |t|
+    t.date     "date_applied"
+    t.string   "test_by"
+    t.string   "injection_site"
+    t.string   "supplier_name"
+    t.string   "lot_num"
+    t.date     "manufacture_date"
+    t.date     "expiry_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "patients_id"
+    t.integer  "exam_patients_id"
+  end
+
+  add_index "vdlrs", ["exam_patients_id"], name: "index_vdlrs_on_exam_patients_id", using: :btree
+  add_index "vdlrs", ["patients_id"], name: "index_vdlrs_on_patients_id", using: :btree
 
 end
