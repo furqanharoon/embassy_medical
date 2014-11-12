@@ -54,20 +54,6 @@ ActiveRecord::Schema.define(version: 20141110140322) do
     t.datetime "updated_at"
   end
 
-
-  create_table "extenders_allergies", force: true do |t|
-    t.integer  "Patient_id"
-    t.string   "allergy_name"
-  
-
-    t.string   "allergy_reaction"
-  
-
-    t.string   "medicine"
-
- 
-
-
   create_table "exam_patients", force: true do |t|
     t.integer  "patient_id"
     t.string   "exam_place_city",    limit: 20
@@ -79,14 +65,19 @@ ActiveRecord::Schema.define(version: 20141110140322) do
     t.string   "screening_site",     limit: 20
     t.string   "lab_syphillis",      limit: 20
     t.string   "lab_tb",             limit: 20
-    
     t.string   "panel_physician",    limit: 20
-
-    
-
     t.datetime "created_at"
-    
+    t.datetime "updated_at"
+  end
 
+  add_index "exam_patients", ["patient_id"], name: "index_exam_patients_on_patient_id", using: :btree
+
+  create_table "extenders_allergies", force: true do |t|
+    t.integer  "Patient_id"
+    t.string   "allergy_name"
+    t.string   "allergy_reaction"
+    t.string   "medicine"
+    t.datetime "created_at"
     t.datetime "updated_at"
   end
 
@@ -107,21 +98,13 @@ ActiveRecord::Schema.define(version: 20141110140322) do
     t.boolean  "vaccination_status"
     t.boolean  "pox_status"
     t.boolean  "tb_status"
-    
-
-
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "exam_patients", ["patient_id"], name: "index_exam_patients_on_patient_id", using: :btree
-
-
   create_table "menu_headings", force: true do |t|
     t.string   "heading_name",   limit: 100
     t.integer  "heading_status"
-    
-
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -130,13 +113,8 @@ ActiveRecord::Schema.define(version: 20141110140322) do
     t.string   "action",          limit: 50
     t.string   "controller",      limit: 50
     t.string   "lable",           limit: 100
-    
     t.boolean  "is_menu"
-    
-
     t.datetime "created_at"
-    
-
     t.datetime "updated_at"
     t.integer  "menu_heading_id"
   end
