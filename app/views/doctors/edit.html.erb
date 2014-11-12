@@ -1,2 +1,15 @@
-<h1>Doctors#edit</h1>
-<p>Find me in app/views/doctors/edit.html.erb</p>
+<h1>Edit Doctor Form</h1>
+
+<%= form_for(:doctor, :url => {:controller => 'doctors', :action => 'update' , :id=>@doctor.id}) do |f| %>
+	<p> Name:</br> <%= f.text_field :name  %> </p>
+	<p> Time Interval:</br> <%= f.text_field :time_interval %> </p>
+	<p> Remarks:<br/> <%= f.text_field :remarks %></p>
+	<p> Phone1:<br/> <%= f.text_field :phone1 %></p>
+	<p> Phone2:<br/> <%= f.text_field :phone2 %></p>
+	<p> Cell1:<br/> <%= f.text_field :cell1 %></p>
+	<p> Cell2:<br/> <%= f.text_field :cell2 %></p>
+	<p> Email:<br/> <%= f.text_field :email %></p>
+	<p> Fee Charges:<br/> <%= f.text_field :fee_charges %></p>
+	<p>Charges Account:<br/> <%= f.text_field :charges_account %></p>
+	<%= f.submit "Update Doctor's Record" %>
+<% end %>

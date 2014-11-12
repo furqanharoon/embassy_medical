@@ -1,2 +1,40 @@
 <h1>Doctors#index</h1>
 <p>Find me in app/views/doctors/index.html.erb</p>
+<div>
+  <h2>Doctors Records</h2>
+  <table border="1">
+    <thead>
+      <th>Name</th>
+      <th>Time Interval</th>
+      <th>Remarks</th>
+      <th>Phone1</th>
+      <th>Phone2</th>
+      <th>Cell1</th>
+      <th>Cell2</th>
+      <th>Email</th>
+      <th>Fee Charges</th>
+      <th>Charges Account</th>
+      <th>Action</th>
+  </thead>
+  <tbody>
+  	<tr>
+  	  <% @doctor.each do |d| %>
+  	  <td><%= d.name %></td>
+	  <td><%= d.time_interval %></td>
+	  <td><%= d.remarks %></td>
+	  <td><%= d.phone1 %></td>
+	  <td><%= d.phone2 %></td>
+	  <td><%= d.cell1 %></td>
+	  <td><%= d.cell2 %></td>
+	  <td><%= d.email %></td>
+	  <td><%= d.fee_charges %></td>
+	  <td><%= d.charges_account %></td>
+	  <td class="actions">
+	    <%= link_to("Show", {:action =>'show',:id => d.id}) %>
+	    <%= link_to("Edit", {:action => 'edit',:id=> d.id}) %>
+	    <%= link_to("Delete", {:action => 'delete',:id => d.id}) %>
+	  </td>
+	</tr>
+    <% end %>
+  </table>
+</div>
