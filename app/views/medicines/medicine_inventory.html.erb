@@ -1,0 +1,47 @@
+<%= form_for :medicine_inventory , :url=>{:controller=>'medicines' , :action=>'add_medicines_inventory' } do |f| %>
+    <input type="hidden" name="medicine_inventory[medicine_id]" value="<%= @medicine_name.id %>">
+    <input type="hidden" name="medicine_inventory[medicine_lot]" value="<%= @lot_number.id %>">  
+    <div class="span4">
+            <div class="control-group">
+                <label class="control-label">Medicine Name</label>
+                <div class="controls controls-row">
+                    <input type="text" value="<%= @medicine_name.medicine_name %>" class="input-block-level" readonly>
+                </div>
+            </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Lot Number</label>
+            <div class="controls controls-row">
+                <input type="text" class="input-block-level" value="<%= @lot_number.lot_no %>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="control-group">
+            <label class="control-label">Quantity</label>
+            <div class="controls controls-row">
+                <input type="text" name="medicine_inventory[medicine_inventory]" class="input-block-level">
+            </div>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="control-group">
+            <label class="control-label">Purchase Price</label>
+            <div class="controls controls-row">
+                <input type="text" name="medicine_inventory[medicine_purchase_price]" class="input-block-level">
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="control-group">
+            <label class="control-label">Sale Price</label>
+            <div class="controls">
+                <input type="text" name="medicine_inventory[medicine_sale_price]" class="input-block-level">
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:10px">
+        <input type="submit" value="Submit">
+    </div>
+<% end %>

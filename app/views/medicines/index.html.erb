@@ -1,0 +1,20 @@
+<h1>Medicines View</h1>
+<div align="center"><a href="/medicines/new">Add New Medicine</a></div>
+<table class="table">
+	<tr>
+		<th>Sr#</th>
+		<th>Medicine Name</th>
+		<th>Total Qty</th>
+		<th>Add Inventory </th>
+	</tr>
+	<% @i=1 %>
+	<% @medicine.each do |h| %>
+	<tr>
+		<td><%= @i %></td>
+		<td><%= h.medicine_name %></td>
+		<td><%= h.medicine_qty.present? ? h.medicine_qty : '0'  %></td>
+		<td><a href="/medicines/medicine_inventory?id=<%= h.id %>">Add Inventory </a></td>
+	</tr>
+	<% @i = @i+1 %>
+	<% end %>
+</table>

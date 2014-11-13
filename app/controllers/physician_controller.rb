@@ -14,8 +14,6 @@ class PhysicianController < ApplicationController
 
   def edit
     @question = Question.find_by_patient_id(params[:id])
-
-
   end
 
   def update
