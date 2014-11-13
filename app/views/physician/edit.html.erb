@@ -1,2 +1,761 @@
 <h1>Physician#edit</h1>
 <p>Find me in app/views/physician/edit.html.erb</p>
+<%= form_for :question , :url=>{:controller => "physician" , :action => "update_history",:id=>@question.id } do | f | %>
+<div class="control-group">
+	 <label class="control-label">Illness or Injury requiring hospitalization()</label>
+        <div class="controls">
+            <label>
+                <div style="float:left;">
+					<span >
+						<input type="radio" name="question[illness_or_injury]" value="1" <%= @question.illness_or_injury == true ? 'checked' : '' %> >
+                        
+					</span>
+				</div>
+                Yes
+            </label>
+            <label style="margin-left:10px;">
+                <div style="float:left;">
+					<span >
+						<input type="radio" name="question[illness_or_injury]" value="0" <%= @question.illness_or_injury == false ? 'checked' : '' %>  >
+					</span>
+				</div>
+                No
+            </label>
+        </div>									
+    </div>
+    <!-- Copy Code Incomminngggg TILL THE END -->
+    	<div class="control-group">
+		<label class="control-label">
+			Heart Disease
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[heart_disease]" value="1" <%= @question.heart_disease == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label style="margin-left:10px;">
+				<div style="float:left;" >
+					<span>
+						<input type="radio" name="question[heart_disease]"  value="0" <%= @question.heart_disease == false ? 'checked' : '' %>  >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Hypertension(high blood pressure)
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[hypertension]" value="1" <%= @question.hypertension == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label style="margin-left:10px;">
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[hypertension]" value="0" <%= @question.hypertension == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Cardiac Arrythmia
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[cardiac_arrythmia]" value="1" <%= @question.cardiac_arrythmia == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label style="margin-left:10px;">
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[cardiac_arrythmia]" value="0" <%= @question.cardiac_arrythmia == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			History of Tobacco Use
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[tobacco_use]" value="1" <%= @question.tobacco_use == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label style="margin-left:10px;">
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[tobacco_use]" value="0" <%= @question.tobacco_use == false ? 'checked' : '' %>  >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Current Use
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[current_use]" value="1" <%= @question.current_use == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label style="margin-left:10px;">
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[current_use]" value="0" <%= @question.current_use == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Asthma
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[asthma]" value="1" <%= @question.asthma == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label style="margin-left:10px;">
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[asthma]" value="0" <%= @question.asthma == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Chronic obstuctive pulomonary disease(emphysema)
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[emphysema]" value="1" <%= @question.emphysema == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label style="margin-left:10px;">
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[emphysema]" value="0" <%= @question.emphysema == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			History of Tuberulosis(TB) disease
+		</label>
+		<div class="controls">
+			<label >
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[tb]" value="1" <%= @question.tb == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label>
+				<div style="float:left;">
+					<span style="margin-left:10px;" 	>
+						<input type="radio" name="question[tb]" value="0" <%= @question.tb == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Treated
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[tb_treated]" value="1" <%= @question.tb_treated == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label>
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[tb_treated]" value="0" <%= @question.tb_treated == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Current TB symptoms
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[current_tb_symptoms]" value="1" <%= @question.current_tb_symptoms == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label>
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[current_tb_symptoms]" value="0" <%= @question.current_tb_symptoms == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+</div>
+
+        <div>
+            <div class="control-group">
+		<label class="control-label">
+			History of Stroke, with current impairement
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[history_of_stroke]" value="1" <%= @question.history_of_stroke == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label>
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[history_of_stroke]" value="0"  <%= @question.history_of_stroke == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Seizure disorder
+		</label>
+		<div class="controls">
+			<label>
+				<div style="float:left;">
+					<span>
+						<input type="radio" name="question[seizure_disorder]" value="1"  <%= @question.seizure_disorder == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label>
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[seizure_disorder]" value="0"  <%= @question.seizure_disorder == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+    <div class="control-group">
+		<label class="control-label">
+			Major impairement in learning, intelligence, selfcare, memory or communication
+		</label>
+		<div class="controls">
+			<label >
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[major_impairements]" value="1"  <%= @question.major_impairements == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label >
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[major_impairements]" value="0" <%= @question.major_impairements == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+	<div class="control-group">
+		<label class="control-label">
+			Major Mental disorder(including major depression, bipolar disorder)
+		</label>
+		<div class="controls">
+			<label >
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[major_mental_disorder]" value="1" <%= @question.major_mental_disorder == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label >
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[major_mental_disorder]" value="0"  <%= @question.major_mental_disorder == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+    <div class="control-group">
+		<label class="control-label">
+			Use of Drugs other than those required for medical reasons
+		</label>
+		<div class="controls">
+			<label >
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[use_of_drugs]" value="1"  <%= @question.use_of_drugs == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label >
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[use_of_drugs]" value="0" <%= @question.use_of_drugs == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+      <div class="control-group">
+		<label class="control-label">
+			Addiction or abuse of specific substance
+		</label>
+		<div class="controls">
+			<label >
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[addiction_of_substance]" value="1" <%= @question.addiction_of_substance == true ? 'checked' : '' %> >
+					</span></div>
+				Yes
+			</label>
+			<label >
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[addiction_of_substance]" value="0" <%= @question.addiction_of_substance == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>									
+    </div>
+        
+        <div class="control-group">
+		<label class="control-label">
+			Other substance-related disorders(including alcohol addiction or abuse)
+		</label>
+		<div class="controls">
+			<label >
+				<div style="float:left;">
+					<span >
+						<input type="radio" name="question[other_disorders]" value="1" <%= @question.other_disorders == true ? 'checked' : '' %>  >
+					</span></div>
+				Yes
+			</label>
+			<label >
+				<div style="float:left;">
+					<span style="margin-left:10px;">
+						<input type="radio" name="question[other_disorders]" value="0"  <%= @question.other_disorders == false ? 'checked' : '' %> >
+					</span>
+				</div>
+				No
+			</label>
+		</div>
+		</div>
+        
+        
+		<div class="control-group">
+			<label class="control-label">
+				Ever taken action to end your life
+			</label>
+			<div class="controls">
+				<label >
+					<div style="float:left;">
+						<span >
+							<input type="radio" name="question[sucide_attempt]" value="1" <%= @question.sucide_attempt == true ? 'checked' : '' %> >
+						</span></div>
+					Yes
+				</label>
+				<label >
+					<div style="float:left;">
+						<span style="margin-left:10px;">
+							<input type="radio" name="question[sucide_attempt]" value="0" <%= @question.sucide_attempt == false ? 'checked' : '' %> >
+						</span>
+					</div>
+					No
+				</label>
+			</div>
+		</div>
+        
+        <div class="control-group">
+			<label class="control-label">
+				Ever caused serious injury to others, caused major property damage
+			</label>
+			<div class="controls">
+				<label >
+					<div style="float:left;">
+						<span >
+							<input type="radio" name="question[serious_injury_others]" value="1" <%= @question.serious_injury_others == true ? 'checked' : '' %> >
+						</span></div>
+					Yes
+				</label>
+				<label >
+					<div style="float:left;">
+						<span style="margin-left:10px;">
+							<input type="radio" name="question[serious_injury_others]" value="0" <%= @question.serious_injury_others == false ? 'checked' : '' %> >
+						</span>
+					</div>
+					No
+				</label>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label">
+				Pegnancy
+			</label>
+			<div class="controls">
+				<label >
+					<div style="float:left;">
+						<span >
+							<input type="radio" name="question[Pregnancy]" value="1" <%= @question.Pregnancy == true ? 'checked' : '' %> >
+						</span></div>
+					Yes
+				</label>
+				<label>
+					<div style="float:left;">
+						<span style="margin-left:10px;">
+							<input type="radio" name="question[Pregnancy]" value="0" <%= @question.Pregnancy == false ? 'checked' : '' %> >
+						</span>
+					</div>
+					No
+				</label>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				Sexually transmitted diseases, if yes then specify
+			</label>
+			<div class="controls">
+				<label >
+					<div style="float:left;">
+						<span >
+							<input type="radio" name="question[sexually_transmitted_diseases]" value="1" <%= @question.sexually_transmitted_diseases == true ? 'checked' : '' %> >
+						</span></div>
+					Yes
+				</label>
+				<label >
+					<div style="float:left;">
+						<span style="margin-left:10px;">
+							<input type="radio" name="question[sexually_transmitted_diseases]" value="0" <%= @question.sexually_transmitted_diseases == false ? 'checked' : '' %> >
+						</span>
+					</div>
+					No
+				</label>
+			</div>
+			<textarea name="question[sexually_transmitted_diseases_detail]">
+			</textarea>
+		</div>
+   		<div>
+            
+            <div class="control-group">
+			<label class="control-label">
+				Diabetes Mellitus
+			</label>
+			<div class="controls">
+				<label>
+					<div style="float:left;">
+						<span>
+							<input type="radio" name="question[diabetes]" value="1" <%= @question.diabetes == true ? 'checked' : '' %> >
+						</span></div>
+					Yes
+				</label>
+				<label>
+					<div style="float:left;">
+						<span style="margin-left:10px;">
+							<input type="radio" name="question[diabetes]" value="0" <%= @question.diabetes == false ? 'checked' : '' %> >
+						</span>
+					</div>
+					No
+				</label>
+			</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Thyroid Disease
+				</label>
+				<div class="controls">
+					<label>
+						<div style="float:left;">
+							<span>
+								<input type="radio" name="question[thyroid_disease]" value="1" <%= @question.thyroid_disease == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label>
+						<div style="float:left;">
+							<span style="margin-left:10px;">
+								<input type="radio" name="question[thyroid_disease]" value="0" <%= @question.thyroid_disease == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					History of Malaria
+				</label>
+				<div class="controls">
+					<label >
+						<div style="float:left;">
+							<span>
+								<input type="radio" name="question[history_of_malaria]" value="1" <%= @question.history_of_malaria == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label style="margin-left:10px;">
+						<div style="float:left;">
+							<span>
+								<input type="radio" name="question[history_of_malaria]" value="0"  <%= @question.history_of_malaria == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Malignancy Specify
+				</label>
+				<div class="controls">
+					<label >
+						<div style="float:left;">
+							<span>
+								<input type="radio" name="question[malignancy_specify]" value="1"  <%= @question.malignancy_specify == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label style="margin-left:10px;">
+						<div style="float:left;">
+							<span>
+								<input type="radio" name="question[malignancy_specify]" value="0"  <%= @question.malignancy_specify == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Chronic Renal Disease
+				</label>
+				<div class="controls">
+					<label >
+						<div style="float:left;">
+							<span >
+								<input type="radio" name="question[chronic_renal_disease]" value="1" <%= @question.chronic_renal_disease == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label >
+						<div style="float:left;">
+							<span style="margin-left:10px;">
+								<input type="radio" name="question[chronic_renal_disease]" value="0" <%= @question.chronic_renal_disease == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Chronic hepatitis or other chronic liver disease
+				</label>
+				<div class="controls">
+					<label>
+						<div style="float:left;">
+							<span>
+								<input type="radio" name="question[chronic_liver_disease]" value="1" <%= @question.chronic_liver_disease == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label>
+						<div style="float:left;">
+							<span style="margin-left:10px;">
+								<input type="radio" name="question[chronic_liver_disease]" value="0"  <%= @question.chronic_liver_disease == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Hansen's Disease
+				</label>
+				<div class="controls">
+					<label>
+						<div style="float:left;">
+							<span>
+								<input type="radio" name="question[hansen_disease]" value="1" <%= @question.hansen_disease == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label>
+						<div style="float:left;">
+							<span style="margin-left:10px;">
+								<input type="radio" name="question[hansen_disease]" value="0" <%= @question.hansen_disease == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Paucibacillary/Multibacillary
+				</label>
+				<div class="controls">
+					<label>
+						<div style="float:left;">
+							<span>
+								<input type="radio" name="question[pau_mul]" value="1" <%= @question.pau_mul == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Paucibacillary
+					</label>
+					<label>
+						<div style="float:left;">
+							<span style="margin-left:10px;">
+								<input type="radio" name="question[pau_mul]" value="0" <%= @question.pau_mul == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						Multibacillary
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Treated
+				</label>
+				<div class="controls">
+					<label>
+						<div style="float:left;">
+							<span >
+								<input type="radio" name="question[treated_mul_pau]" value="1" <%= @question.treated_mul_pau == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label>
+						<div style="float:left;">
+							<span style="margin-left:10px;">
+								<input type="radio" name="question[treated_mul_pau]" value="0" <%= @question.treated_mul_pau == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Visible disabilities (including loss of arms or legs),specify
+				</label>
+				<div class="controls">
+					<label>
+						<div style="float:left;">
+							<span  class="">
+								<input type="radio" name="question[visible_disability]" value="1" <%= @question.visible_disability == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label>
+						<div style="float:left;">
+							<span style="margin-left:10px;">
+								<input type="radio" name="question[visible_disability]" value="0" <%= @question.visible_disability == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					Other requiring treatment
+				</label>
+				<div class="controls">
+					<label>
+						<div style="float:left;">
+							<span  class="">
+								<input type="radio" name="question[other_treatment]" value="1" <%= @question.other_treatment == true ? 'checked' : '' %> >
+							</span>
+						</div>
+						Yes
+					</label>
+					<label>
+						<div style="float:left;">
+							<span style="margin-left:10px;">
+								<input type="radio" name="question[other_treatment]" value="0"  <%= @question.other_treatment == false ? 'checked' : '' %> >
+							</span>
+						</div>
+						No
+					</label>
+				</div>
+			</div>
+
+             <!--<button type="submit" onclick="this.form.submit();">submit</button>-->
+        </div>
+        <div style="margin-top:30px;margin-bottom:30px;margin-left:30px;">
+        	<input type="submit" value="Submit">
+        </div>
+    </div>
+</div>
+<% end %>
