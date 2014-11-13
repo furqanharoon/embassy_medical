@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'medicines/index'
+
+  get 'medicines/show'
+
+  get 'medicines/new'
+
+  get 'medicines/create'
+
+  get 'medicines/edit'
+
+  get 'medicines/update'
+
+  get 'medicines/delete'
+
+  get 'medicines/destroy'
+
+  get 'medicines/medicine_inventory'
+
   get 'lot/index'
   get 'lot/new'
 

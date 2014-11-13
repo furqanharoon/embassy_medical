@@ -1,6 +1,6 @@
 class PhysicianController < ApplicationController
   def index
-    @physician=Patient.all.join('inner join countries')
+    @physician=Patient.all
   end
 
   def new
