@@ -1,0 +1,67 @@
+<a class="btn green" onclick="appendDiv()" id="add_row">
+	Add New 
+</a>
+	
+	<%= form_for(:medicine_refer, :url => {:action => 'add_record_med'}) do |f| %>
+	<%= f.hidden_field :patients_id , :value => params[:id] %>
+
+	<table class="table table-striped table-hover table-bordered" id="editable-sample">
+		<thead>
+		 	<tr>
+		 		<th>Medicine</th>
+			 	<th>Unit</th>
+			 	<th>Dose</th>
+			 	<th>Frequency</th>
+			 	<th>Duration</th>
+			</tr>
+		</thead>
+		<tbody class="medicine_rffer">
+			 <tr>
+			 	<td >
+					<select id="medicine" name="medicine_refer[medicine_id][]" style="width:150px;">
+						<option>--Select Medicine--</option>
+						<% @med.each do |m| %>
+							<option value="<%= m.id %>" ><%= m.medicine_name %></option>
+						<% end %>
+					</select>
+				</td>
+				<td>
+					<select id="medicine" name="medicine_refer[unit][]" style="width:75px;">
+						<option>1</option>
+						<option>2</option>
+					</select>
+				</td>
+				<td>
+					<select id="medicine" name="medicine_refer[dose][]" style="width:100px;">
+						<option>--Select Dose--</option>
+						<option value="1">1 tablet</option>
+						<option value="2">2 tablet</option>
+						<option value="3">3 tablet</option>
+					</select>
+				</td>
+				<td>
+					<select id="medicine" name="medicine_refer[frequency][]" style="width:100px;">
+						<option>--Select Frequency--</option>
+						<option value="1">1 time a day</option>
+						<option value="2">2 time a day</option>
+						<option value="3">3 time a day</option>
+					</select>
+				</td>
+				<td>
+					<select id="medicine" name="medicine_refer[duration][]" style="width:100px;">
+						<option>--Select Duration--</option>
+						<option value="1">1 day</option>
+						<option value="2">2 day</option>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<%= f.submit "Submit Form" %>
+	<% end %>
+<script type="text/javascript">
+	function appendDiv()
+	{
+		$(".medicine_rffer").append('<tr><td ><select id="medicine" name="medicine_refer[medicine_id][]" style="width:150px;"><option>--Select Medicine--</option><% @med.each do |m| %><option value="<%= m.id %>" ><%= m.medicine_name %></option><% end %></select></td><td><select id="medicine" name="medicine_refer[unit][]" style="width:75px;"><option>1</option><option>2</option></select></td><td><select id="medicine" name="medicine_refer[dose][]" style="width:100px;"><option>--Select dose--</option><option value="1">1 tablet</option><option value="2">2 tablet</option><option value="3">3 tablet</option></select></td><td><select id="medicine" name="medicine_refer[frequency][]" style="width:100px;"><option>--Select frequency--</option><option value="1">1 time a day</option><option value="2">2 time a day</option><option value="3">3 time a day</option></select></td><td><select id="medicine" name="medicine_refer[duration][]" style="width:100px;"><option>--Select duration--</option><option value="1">1 day</option><option value="2">2 day</option></select></td></tr>');
+	}
+</script>
