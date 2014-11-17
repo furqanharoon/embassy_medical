@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20141117074132) do
 
-ActiveRecord::Schema.define(version: 20141113065147) do
   create_table "allergies", force: true do |t|
     t.string   "allergy_name"
     t.string   "allergy_reaction"
@@ -125,6 +125,19 @@ ActiveRecord::Schema.define(version: 20141113065147) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "medcine_refers", force: true do |t|
+    t.integer  "medicine_id"
+    t.integer  "unit"
+    t.integer  "dose"
+    t.integer  "frequency"
+    t.integer  "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "patients_id"
+  end
+
+  add_index "medcine_refers", ["patients_id"], name: "index_medcine_refers_on_patients_id", using: :btree
 
   create_table "medicine_inventories", force: true do |t|
     t.integer  "medicine_id"

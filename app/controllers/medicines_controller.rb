@@ -27,6 +27,7 @@ class MedicinesController < ApplicationController
 
   def destroy
   end
+  
 
   def medicine_inventory
   @medicine_name = Medicine.find(params[:id])
